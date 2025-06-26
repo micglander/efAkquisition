@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e9a226df0484f61b9d3a9a72c3154ca" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Rating" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Regisseure" Width="1.5" PointX="9.375" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Status" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Anbieter" Width="1.5" PointX="10.25" PointY="7.375" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Laender" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Bearbeiter" Width="1.5" PointX="8" PointY="7.75" />
+        <AssociationConnector Association="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter" />
+        <EntityTypeShape EntityType="AkquiseTestModel.qry_ProjekteASP" Width="1.75" PointX="6" PointY="2.875" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Auswertungsart" Width="1.5" PointX="12.5" PointY="17.375" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Lektoratseinschaetzung" Width="1.5" PointX="10.25" PointY="12.125" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Projektart" Width="1.5" PointX="10.25" PointY="0.75" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Sender" Width="1.5" PointX="15.5" PointY="4.375" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Verleih" Width="1.5" PointX="10.25" PointY="17" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_WE" Width="1.5" PointX="3.375" PointY="17.5" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Personen" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_ProjektPersonRel" Width="1.5" PointX="18" PointY="8.75" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Perso__7A672E12" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Firmen" Width="1.5" PointX="16.5" PointY="17.875" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Funktionen" Width="1.5" PointX="15" PointY="1.25" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Genre" Width="1.5" PointX="17.5" PointY="15.125" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_ProjektFirmaRel" Width="2.875" PointX="18.75" PointY="12" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_ProjektGenreRel" Width="1.5" PointX="19.75" PointY="9" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Firma__0A9D95DB" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Funkt__7B5B524B" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Genre__01142BA1" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_ProjektAuswertungsArtRel" Width="2.625" PointX="14.75" PointY="8.25" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_ProjektLandRel" Width="1.5" PointX="14.75" PointY="15" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Themen" Width="1.5" PointX="14.75" PointY="11.875" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_TV_Einschaetzung" Width="1.5" PointX="17.75" PointY="6" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Auswe__5CD6CB2B" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_TV_Ei__Sende__5629CD9C" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Projekte" Width="1.5" PointX="12.5" PointY="3.625" />
+        <AssociationConnector Association="AkquiseTestModel.FK_tbl_Anbieter_tbl_Projekte_AnbieterNr" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Bearb__7F2BE32F" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Projek__LENr__01142BA1" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Proje__00200768" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Entry__5BE2A6F2" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Askin__7E37BEF6" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Budge__7D439ABD" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Entry__4AB81AF0" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Entry__4F7CD00D" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Entry__5FB337D6" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Entry__6383C8BA" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__verka__02084FDA" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Theme__Entry__59063A47" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_TV_Ei__Entry__5535A963" />
+        <AssociationConnector Association="AkquiseTestModel.FK_tbl_Rating_tbl_Projekte" />
+        <AssociationConnector Association="AkquiseTestModel.FK_tbl_Regisseure_tbl_Projekte_RegisseurNr" />
+        <AssociationConnector Association="AkquiseTestModel.FK_tbl_Status_tbl_Projekte_StatusNr" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Angeb__76969D2E" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Backi__74AE54BC" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Land" Width="1.5" PointX="4.25" PointY="11.625" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__LandN__60A75C0F" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_BlobProjekte" Width="1.5" PointX="14.75" PointY="21" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_BlobP__Entry__01142BA1" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Jobs" Width="1.5" PointX="0.75" PointY="13" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Perso__JobOn__0F624AF8" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Perso__JobTh__114A936A" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Perso__JobTw__10566F31" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Proje__Kaufp__1F98B2C1" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Links" Width="1.5" PointX="14.75" PointY="24.375" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Links__Entry__25518C17" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_BadCharacters" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="AkquiseTestModel.qry_ProjekteIndex" Width="2" PointX="6.375" PointY="11.75" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_BlobData" Width="1.5" PointX="14.75" PointY="27.375" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_BlobD__Entry__2EA5EC27" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Warenkorb" Width="1.5" PointX="17.5" PointY="21.875" />
+        <EntityTypeShape EntityType="AkquiseTestModel.qry_Firmamatch" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="AkquiseTestModel.qry_Personmatch" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_WarenkorbProjektRel" Width="1.5" PointX="19.75" PointY="15.5" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Waren__Entry__4865BE2A" />
+        <AssociationConnector Association="AkquiseTestModel.FK__tbl_Waren__Waren__477199F1" />
+        <EntityTypeShape EntityType="AkquiseTestModel.tbl_Filmformate" Width="1.5" PointX="17.375" PointY="0.875" />
+        <AssociationConnector Association="AkquiseTestModel.FK_Filmformate_Projekte" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

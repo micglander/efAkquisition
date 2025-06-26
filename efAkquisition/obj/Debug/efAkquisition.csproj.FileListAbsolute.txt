@@ -1,0 +1,51 @@
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll.config
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\bin\Debug\efAkquisition.pdb
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\bin\Debug\EntityFramework.dll
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\bin\Debug\EntityFramework.xml
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\obj\Debug\efAkquisition.dll
+C:\Users\Michael.Glander\Documents\Visual Studio 2015\Projects\efAkquisition\efAkquisition\obj\Debug\efAkquisition.pdb
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll.config
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\bin\Debug\efAkquisition.pdb
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\bin\Debug\EntityFramework.dll
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.dll
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\bin\Debug\EntityFramework.xml
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.xml
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\obj\Debug\efAkquisition.dll
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\obj\Debug\efAkquisition.pdb
+E:\DSym\glander\DotNet\global\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csprojResolveAssemblyReference.cache
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll.config
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\efAkquisition.pdb
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.dll
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.dll
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.xml
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.xml
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csprojResolveAssemblyReference.cache
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\obj\Debug\efAkquisition.dll
+G:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\obj\Debug\efAkquisition.pdb
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll.config
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\efAkquisition.pdb
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.dll
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.dll
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.xml
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.xml
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\obj\Debug\efAkquisition.dll
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\obj\Debug\efAkquisition.pdb
+E:\dsym\glander\DotNet\Tests\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csprojResolveAssemblyReference.cache
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll.config
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\efAkquisition.pdb
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.dll
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.dll
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.xml
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.xml
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.dll
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.pdb
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.AssemblyReference.cache
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.CoreCompileInputs.cache
+E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.CopyComplete

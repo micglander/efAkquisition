@@ -1,0 +1,1189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AkquiseTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_Rating">
+    <Key>
+      <PropertyRef Name="Rating" />
+    </Key>
+    <Property Name="Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK_tbl_Rating_tbl_Projekte" FromRole="tbl_Rating" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_Regisseure">
+    <Key>
+      <PropertyRef Name="RegisseurNr" />
+    </Key>
+    <Property Name="RegisseurNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nachname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Vorname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Werke" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Regie" Type="String" MaxLength="82" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK_tbl_Regisseure_tbl_Projekte_RegisseurNr" FromRole="tbl_Regisseure" ToRole="tbl_Projekte" />
+    <Property Name="Matchname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Status">
+    <Key>
+      <PropertyRef Name="StatusNr" />
+    </Key>
+    <Property Name="StatusNr" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK_tbl_Status_tbl_Projekte_StatusNr" FromRole="tbl_Status" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityContainer Name="AkquiseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Rating" EntityType="Self.tbl_Rating" />
+    <EntitySet Name="tbl_Regisseure" EntityType="Self.tbl_Regisseure" />
+    <EntitySet Name="tbl_Status" EntityType="Self.tbl_Status" />
+    <EntitySet Name="tbl_Anbieter" EntityType="AkquiseTestModel.tbl_Anbieter" />
+    <EntitySet Name="tbl_Laender" EntityType="AkquiseTestModel.tbl_Laender" />
+    <EntitySet Name="tbl_Bearbeiter" EntityType="AkquiseTestModel.tbl_Bearbeiter" />
+    <AssociationSet Name="FK_tbl_Bearbeiter_tbl_Anbieter" Association="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter">
+      <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+      <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+    </AssociationSet>
+    <EntitySet Name="qry_ProjekteASP" EntityType="AkquiseTestModel.qry_ProjekteASP" />
+    <EntitySet Name="tbl_Auswertungsart" EntityType="AkquiseTestModel.tbl_Auswertungsart" />
+    <EntitySet Name="tbl_Lektoratseinschaetzung" EntityType="AkquiseTestModel.tbl_Lektoratseinschaetzung" />
+    <EntitySet Name="tbl_Projektart" EntityType="AkquiseTestModel.tbl_Projektart" />
+    <EntitySet Name="tbl_Sender" EntityType="AkquiseTestModel.tbl_Sender" />
+    <EntitySet Name="tbl_Verleih" EntityType="AkquiseTestModel.tbl_Verleih" />
+    <EntitySet Name="tbl_WE" EntityType="AkquiseTestModel.tbl_WE" />
+    <EntitySet Name="tbl_Personen" EntityType="AkquiseTestModel.tbl_Personen" />
+    <EntitySet Name="tbl_ProjektPersonRel" EntityType="AkquiseTestModel.tbl_ProjektPersonRel" />
+    <AssociationSet Name="FK__tbl_Proje__Perso__7A672E12" Association="AkquiseTestModel.FK__tbl_Proje__Perso__7A672E12">
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+      <End Role="tbl_ProjektPersonRel" EntitySet="tbl_ProjektPersonRel" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Firmen" EntityType="AkquiseTestModel.tbl_Firmen" />
+    <EntitySet Name="tbl_Funktionen" EntityType="AkquiseTestModel.tbl_Funktionen" />
+    <EntitySet Name="tbl_Genre" EntityType="AkquiseTestModel.tbl_Genre" />
+    <EntitySet Name="tbl_ProjektFirmaRel" EntityType="AkquiseTestModel.tbl_ProjektFirmaRel" />
+    <EntitySet Name="tbl_ProjektGenreRel" EntityType="AkquiseTestModel.tbl_ProjektGenreRel" />
+    <AssociationSet Name="FK__tbl_Proje__Firma__0A9D95DB" Association="AkquiseTestModel.FK__tbl_Proje__Firma__0A9D95DB">
+      <End Role="tbl_Firmen" EntitySet="tbl_Firmen" />
+      <End Role="tbl_ProjektFirmaRel" EntitySet="tbl_ProjektFirmaRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Funkt__7B5B524B" Association="AkquiseTestModel.FK__tbl_Proje__Funkt__7B5B524B">
+      <End Role="tbl_Funktionen" EntitySet="tbl_Funktionen" />
+      <End Role="tbl_ProjektPersonRel" EntitySet="tbl_ProjektPersonRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Genre__01142BA1" Association="AkquiseTestModel.FK__tbl_Proje__Genre__01142BA1">
+      <End Role="tbl_Genre" EntitySet="tbl_Genre" />
+      <End Role="tbl_ProjektGenreRel" EntitySet="tbl_ProjektGenreRel" />
+    </AssociationSet>
+    <EntitySet Name="tbl_ProjektAuswertungsArtRel" EntityType="AkquiseTestModel.tbl_ProjektAuswertungsArtRel" />
+    <EntitySet Name="tbl_ProjektLandRel" EntityType="AkquiseTestModel.tbl_ProjektLandRel" />
+    <EntitySet Name="tbl_Themen" EntityType="AkquiseTestModel.tbl_Themen" />
+    <EntitySet Name="tbl_TV_Einschaetzung" EntityType="AkquiseTestModel.tbl_TV_Einschaetzung" />
+    <AssociationSet Name="FK__tbl_Proje__Auswe__5CD6CB2B" Association="AkquiseTestModel.FK__tbl_Proje__Auswe__5CD6CB2B">
+      <End Role="tbl_Auswertungsart" EntitySet="tbl_Auswertungsart" />
+      <End Role="tbl_ProjektAuswertungsArtRel" EntitySet="tbl_ProjektAuswertungsArtRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TV_Ei__Sende__5629CD9C" Association="AkquiseTestModel.FK__tbl_TV_Ei__Sende__5629CD9C">
+      <End Role="tbl_Sender" EntitySet="tbl_Sender" />
+      <End Role="tbl_TV_Einschaetzung" EntitySet="tbl_TV_Einschaetzung" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Projekte" EntityType="AkquiseTestModel.tbl_Projekte" />
+    <AssociationSet Name="FK_tbl_Anbieter_tbl_Projekte_AnbieterNr" Association="AkquiseTestModel.FK_tbl_Anbieter_tbl_Projekte_AnbieterNr">
+      <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Bearb__7F2BE32F" Association="AkquiseTestModel.FK__tbl_Proje__Bearb__7F2BE32F">
+      <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Projek__LENr__01142BA1" Association="AkquiseTestModel.FK__tbl_Projek__LENr__01142BA1">
+      <End Role="tbl_Lektoratseinschaetzung" EntitySet="tbl_Lektoratseinschaetzung" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Proje__00200768" Association="AkquiseTestModel.FK__tbl_Proje__Proje__00200768">
+      <End Role="tbl_Projektart" EntitySet="tbl_Projektart" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__5BE2A6F2" Association="AkquiseTestModel.FK__tbl_Proje__Entry__5BE2A6F2">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektAuswertungsArtRel" EntitySet="tbl_ProjektAuswertungsArtRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Askin__7E37BEF6" Association="AkquiseTestModel.FK__tbl_Proje__Askin__7E37BEF6">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Budge__7D439ABD" Association="AkquiseTestModel.FK__tbl_Proje__Budge__7D439ABD">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__4AB81AF0" Association="AkquiseTestModel.FK__tbl_Proje__Entry__4AB81AF0">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektPersonRel" EntitySet="tbl_ProjektPersonRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__4F7CD00D" Association="AkquiseTestModel.FK__tbl_Proje__Entry__4F7CD00D">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektGenreRel" EntitySet="tbl_ProjektGenreRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__5FB337D6" Association="AkquiseTestModel.FK__tbl_Proje__Entry__5FB337D6">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektLandRel" EntitySet="tbl_ProjektLandRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__6383C8BA" Association="AkquiseTestModel.FK__tbl_Proje__Entry__6383C8BA">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektFirmaRel" EntitySet="tbl_ProjektFirmaRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__verka__02084FDA" Association="AkquiseTestModel.FK__tbl_Proje__verka__02084FDA">
+      <End Role="tbl_Verleih" EntitySet="tbl_Verleih" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Theme__Entry__59063A47" Association="AkquiseTestModel.FK__tbl_Theme__Entry__59063A47">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_Themen" EntitySet="tbl_Themen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TV_Ei__Entry__5535A963" Association="AkquiseTestModel.FK__tbl_TV_Ei__Entry__5535A963">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_TV_Einschaetzung" EntitySet="tbl_TV_Einschaetzung" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Rating_tbl_Projekte" Association="AkquiseTestModel.FK_tbl_Rating_tbl_Projekte">
+      <End Role="tbl_Rating" EntitySet="tbl_Rating" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Regisseure_tbl_Projekte_RegisseurNr" Association="AkquiseTestModel.FK_tbl_Regisseure_tbl_Projekte_RegisseurNr">
+      <End Role="tbl_Regisseure" EntitySet="tbl_Regisseure" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Status_tbl_Projekte_StatusNr" Association="AkquiseTestModel.FK_tbl_Status_tbl_Projekte_StatusNr">
+      <End Role="tbl_Status" EntitySet="tbl_Status" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Angeb__76969D2E" Association="AkquiseTestModel.FK__tbl_Proje__Angeb__76969D2E">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Backi__74AE54BC" Association="AkquiseTestModel.FK__tbl_Proje__Backi__74AE54BC">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Land" EntityType="AkquiseTestModel.tbl_Land" />
+    <AssociationSet Name="FK__tbl_Proje__LandN__60A75C0F" Association="AkquiseTestModel.FK__tbl_Proje__LandN__60A75C0F">
+      <End Role="tbl_Land" EntitySet="tbl_Land" />
+      <End Role="tbl_ProjektLandRel" EntitySet="tbl_ProjektLandRel" />
+    </AssociationSet>
+    <EntitySet Name="tbl_BlobProjekte" EntityType="AkquiseTestModel.tbl_BlobProjekte" />
+    <AssociationSet Name="FK__tbl_BlobP__Entry__01142BA1" Association="AkquiseTestModel.FK__tbl_BlobP__Entry__01142BA1">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_BlobProjekte" EntitySet="tbl_BlobProjekte" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Jobs" EntityType="AkquiseTestModel.tbl_Jobs" />
+    <AssociationSet Name="FK__tbl_Perso__JobOn__0F624AF8" Association="AkquiseTestModel.FK__tbl_Perso__JobOn__0F624AF8">
+      <End Role="tbl_Jobs" EntitySet="tbl_Jobs" />
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Perso__JobTh__114A936A" Association="AkquiseTestModel.FK__tbl_Perso__JobTh__114A936A">
+      <End Role="tbl_Jobs" EntitySet="tbl_Jobs" />
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Perso__JobTw__10566F31" Association="AkquiseTestModel.FK__tbl_Perso__JobTw__10566F31">
+      <End Role="tbl_Jobs" EntitySet="tbl_Jobs" />
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Kaufp__1F98B2C1" Association="AkquiseTestModel.FK__tbl_Proje__Kaufp__1F98B2C1">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Links" EntityType="AkquiseTestModel.tbl_Links" />
+    <AssociationSet Name="FK__tbl_Links__Entry__25518C17" Association="AkquiseTestModel.FK__tbl_Links__Entry__25518C17">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_Links" EntitySet="tbl_Links" />
+    </AssociationSet>
+    <EntitySet Name="tbl_BadCharacters" EntityType="AkquiseTestModel.tbl_BadCharacters" />
+    <EntitySet Name="qry_ProjekteIndex" EntityType="AkquiseTestModel.qry_ProjekteIndex" />
+    <EntitySet Name="tbl_BlobData" EntityType="AkquiseTestModel.tbl_BlobData" />
+    <AssociationSet Name="FK__tbl_BlobD__Entry__2EA5EC27" Association="AkquiseTestModel.FK__tbl_BlobD__Entry__2EA5EC27">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_BlobData" EntitySet="tbl_BlobData" />
+    </AssociationSet>
+    <FunctionImport Name="sp_UpdateFestivalAkt" />
+    <EntitySet Name="tbl_Warenkorb" EntityType="AkquiseTestModel.tbl_Warenkorb" />
+    <EntitySet Name="qry_Firmamatch" EntityType="AkquiseTestModel.qry_Firmamatch" />
+    <EntitySet Name="qry_Personmatch" EntityType="AkquiseTestModel.qry_Personmatch" />
+    <FunctionImport Name="sp_Warenkorbprojekte" EntitySet="qry_ProjekteIndex" ReturnType="Collection(AkquiseTestModel.qry_ProjekteIndex)">
+      <Parameter Name="benutzer" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tbl_WarenkorbProjektRel" EntityType="AkquiseTestModel.tbl_WarenkorbProjektRel" />
+    <AssociationSet Name="FK__tbl_Waren__Entry__4865BE2A" Association="AkquiseTestModel.FK__tbl_Waren__Entry__4865BE2A">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_WarenkorbProjektRel" EntitySet="tbl_WarenkorbProjektRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Waren__Waren__477199F1" Association="AkquiseTestModel.FK__tbl_Waren__Waren__477199F1">
+      <End Role="tbl_Warenkorb" EntitySet="tbl_Warenkorb" />
+      <End Role="tbl_WarenkorbProjektRel" EntitySet="tbl_WarenkorbProjektRel" />
+    </AssociationSet>
+    <FunctionImport Name="fn_Volltext" IsComposable="true" ReturnType="Collection(Int32)">
+      <Parameter Name="such" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tbl_Filmformate" EntityType="AkquiseTestModel.tbl_Filmformate" />
+    <AssociationSet Name="FK_Filmformate_Projekte" Association="AkquiseTestModel.FK_Filmformate_Projekte">
+      <End Role="tbl_Filmformate" EntitySet="tbl_Filmformate" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_Anbieter">
+    <Key>
+      <PropertyRef Name="AnbieterNr" />
+    </Key>
+    <Property Name="AnbieterNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kürzel" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Kontaktperson" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="zuständig" Type="Int32" Nullable="false" />
+    <Property Name="AnbieterAF" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbl_Bearbeiter" Relationship="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter" FromRole="tbl_Anbieter" ToRole="tbl_Bearbeiter" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK_tbl_Anbieter_tbl_Projekte_AnbieterNr" FromRole="tbl_Anbieter" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_Laender">
+    <Key>
+      <PropertyRef Name="Land" />
+    </Key>
+    <Property Name="Land" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Landesname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Bearbeiter">
+    <Key>
+      <PropertyRef Name="BearbeiterNr" />
+    </Key>
+    <Property Name="BearbeiterNr" Type="Int32" Nullable="false" />
+    <Property Name="Bearbeiter" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="tbl_Anbieter" Relationship="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter" FromRole="tbl_Bearbeiter" ToRole="tbl_Anbieter" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Bearb__7F2BE32F" FromRole="tbl_Bearbeiter" ToRole="tbl_Projekte" />
+  </EntityType>
+  <Association Name="FK_tbl_Bearbeiter_tbl_Anbieter">
+    <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bearbeiter">
+        <PropertyRef Name="BearbeiterNr" />
+      </Principal>
+      <Dependent Role="tbl_Anbieter">
+        <PropertyRef Name="zuständig" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="qry_ProjekteASP">
+    <Key>
+      <PropertyRef Name="ENTRY_No" />
+    </Key>
+    <Property Name="ENTRY_No" Type="Int32" Nullable="false" />
+    <Property Name="TITEL_PROJEKT_FILM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DATUM_ANGEBOT" Type="DateTime" Precision="3" />
+    <Property Name="aktualisiert" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="StatusNr" Type="Int32" Nullable="false" />
+    <Property Name="Status2" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="xabgelehnt" Type="Int32" Nullable="false" />
+    <Property Name="Land" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AnbieterNr" Type="Int32" Nullable="false" />
+    <Property Name="Kontakt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Firma" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Anb" Type="String" MaxLength="73" FixedLength="false" Unicode="true" />
+    <Property Name="AnbieterAF" Type="Boolean" />
+    <Property Name="zuständig" Type="Int32" />
+    <Property Name="Bearbeiter" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="RegisseurNr" Type="Int32" />
+    <Property Name="Regie" Type="String" MaxLength="82" FixedLength="false" Unicode="true" />
+    <Property Name="Werke" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Produzenten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Produktionsfirma" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Script_Buch" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Drehbeginn" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Lieferbar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="US_Release" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Geschichte" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Besetzung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Sonstiges" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Beurteilung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Budget" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Asking" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Angebot" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Festival_akt" Type="Boolean" Nullable="false" />
+    <Property Name="Anfangsbuchstabe" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Auswertungsart">
+    <Key>
+      <PropertyRef Name="AuswertungsartNr" />
+    </Key>
+    <Property Name="AuswertungsartNr" Type="Int32" Nullable="false" />
+    <Property Name="Auswertungsart" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_ProjektAuswertungsArtRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Auswe__5CD6CB2B" FromRole="tbl_Auswertungsart" ToRole="tbl_ProjektAuswertungsArtRel" />
+  </EntityType>
+  <EntityType Name="tbl_Lektoratseinschaetzung">
+    <Key>
+      <PropertyRef Name="LENr" />
+    </Key>
+    <Property Name="LENr" Type="Int32" Nullable="false" />
+    <Property Name="Lektoratseinschaetzung" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Projek__LENr__01142BA1" FromRole="tbl_Lektoratseinschaetzung" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_Projektart">
+    <Key>
+      <PropertyRef Name="ProjektartNr" />
+    </Key>
+    <Property Name="ProjektartNr" Type="Int32" Nullable="false" />
+    <Property Name="Projektart" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Proje__00200768" FromRole="tbl_Projektart" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_Sender">
+    <Key>
+      <PropertyRef Name="SenderNr" />
+    </Key>
+    <Property Name="SenderNr" Type="Int32" Nullable="false" />
+    <Property Name="Sender" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_TV_Einschaetzung" Relationship="AkquiseTestModel.FK__tbl_TV_Ei__Sende__5629CD9C" FromRole="tbl_Sender" ToRole="tbl_TV_Einschaetzung" />
+  </EntityType>
+  <EntityType Name="tbl_Verleih">
+    <Key>
+      <PropertyRef Name="VerleihNr" />
+    </Key>
+    <Property Name="VerleihNr" Type="Int32" Nullable="false" />
+    <Property Name="Verleih" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__verka__02084FDA" FromRole="tbl_Verleih" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_WE">
+    <Key>
+      <PropertyRef Name="WENr" />
+    </Key>
+    <Property Name="WENr" Type="Int32" Nullable="false" />
+    <Property Name="Waehrung" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Askin__7E37BEF6" FromRole="tbl_WE" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Projekte1" Relationship="AkquiseTestModel.FK__tbl_Proje__Budge__7D439ABD" FromRole="tbl_WE" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Projekte2" Relationship="AkquiseTestModel.FK__tbl_Proje__Angeb__76969D2E" FromRole="tbl_WE" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Projekte21" Relationship="AkquiseTestModel.FK__tbl_Proje__Backi__74AE54BC" FromRole="tbl_WE" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Projekte4" Relationship="AkquiseTestModel.FK__tbl_Proje__Kaufp__1F98B2C1" FromRole="tbl_WE" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_Personen">
+    <Key>
+      <PropertyRef Name="PersonNr" />
+    </Key>
+    <Property Name="PersonNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ImdbID" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Starmeter" Type="Int32" />
+    <Property Name="Filme" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_ProjektPersonRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Perso__7A672E12" FromRole="tbl_Personen" ToRole="tbl_ProjektPersonRel" />
+    <Property Name="JobOne" Type="Int32" Nullable="false" />
+    <Property Name="JobTwo" Type="Int32" Nullable="false" />
+    <Property Name="JobThree" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Jobs1" Relationship="AkquiseTestModel.FK__tbl_Perso__JobOn__0F624AF8" FromRole="tbl_Personen" ToRole="tbl_Jobs" />
+    <NavigationProperty Name="tbl_Jobs3" Relationship="AkquiseTestModel.FK__tbl_Perso__JobTh__114A936A" FromRole="tbl_Personen" ToRole="tbl_Jobs" />
+    <NavigationProperty Name="tbl_Jobs2" Relationship="AkquiseTestModel.FK__tbl_Perso__JobTw__10566F31" FromRole="tbl_Personen" ToRole="tbl_Jobs" />
+    <Property Name="Matchname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsFirma" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektPersonRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="PersonNr" Type="Int32" Nullable="false" />
+    <Property Name="Prio" Type="Int32" />
+    <Property Name="FunktionNr" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Personen" Relationship="AkquiseTestModel.FK__tbl_Proje__Perso__7A672E12" FromRole="tbl_ProjektPersonRel" ToRole="tbl_Personen" />
+    <NavigationProperty Name="tbl_Funktionen" Relationship="AkquiseTestModel.FK__tbl_Proje__Funkt__7B5B524B" FromRole="tbl_ProjektPersonRel" ToRole="tbl_Funktionen" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__4AB81AF0" FromRole="tbl_ProjektPersonRel" ToRole="tbl_Projekte" />
+    <Property Name="ersetzt" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tbl_Proje__Perso__7A672E12">
+    <End Type="AkquiseTestModel.tbl_Personen" Role="tbl_Personen" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektPersonRel" Role="tbl_ProjektPersonRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Personen">
+        <PropertyRef Name="PersonNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektPersonRel">
+        <PropertyRef Name="PersonNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Firmen">
+    <Key>
+      <PropertyRef Name="FirmaNr" />
+    </Key>
+    <Property Name="FirmaNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firma" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ImdbID" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Companymeter" Type="Int32" />
+    <Property Name="Job" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_ProjektFirmaRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Firma__0A9D95DB" FromRole="tbl_Firmen" ToRole="tbl_ProjektFirmaRel" />
+    <Property Name="Matchname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Funktionen">
+    <Key>
+      <PropertyRef Name="FunktionNr" />
+    </Key>
+    <Property Name="FunktionNr" Type="Int32" Nullable="false" />
+    <Property Name="Funktion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_ProjektPersonRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Funkt__7B5B524B" FromRole="tbl_Funktionen" ToRole="tbl_ProjektPersonRel" />
+  </EntityType>
+  <EntityType Name="tbl_Genre">
+    <Key>
+      <PropertyRef Name="GenreNr" />
+    </Key>
+    <Property Name="GenreNr" Type="Int32" Nullable="false" />
+    <Property Name="Genre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Sortierung" Type="Int32" />
+    <NavigationProperty Name="tbl_ProjektGenreRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Genre__01142BA1" FromRole="tbl_Genre" ToRole="tbl_ProjektGenreRel" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektFirmaRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="FirmaNr" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Firmen" Relationship="AkquiseTestModel.FK__tbl_Proje__Firma__0A9D95DB" FromRole="tbl_ProjektFirmaRel" ToRole="tbl_Firmen" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__6383C8BA" FromRole="tbl_ProjektFirmaRel" ToRole="tbl_Projekte" />
+    <Property Name="Prio" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektGenreRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="GenreNr" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Genre" Relationship="AkquiseTestModel.FK__tbl_Proje__Genre__01142BA1" FromRole="tbl_ProjektGenreRel" ToRole="tbl_Genre" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__4F7CD00D" FromRole="tbl_ProjektGenreRel" ToRole="tbl_Projekte" />
+  </EntityType>
+  <Association Name="FK__tbl_Proje__Firma__0A9D95DB">
+    <End Type="AkquiseTestModel.tbl_Firmen" Role="tbl_Firmen" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektFirmaRel" Role="tbl_ProjektFirmaRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Firmen">
+        <PropertyRef Name="FirmaNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektFirmaRel">
+        <PropertyRef Name="FirmaNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Funkt__7B5B524B">
+    <End Type="AkquiseTestModel.tbl_Funktionen" Role="tbl_Funktionen" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektPersonRel" Role="tbl_ProjektPersonRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Funktionen">
+        <PropertyRef Name="FunktionNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektPersonRel">
+        <PropertyRef Name="FunktionNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Genre__01142BA1">
+    <End Type="AkquiseTestModel.tbl_Genre" Role="tbl_Genre" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektGenreRel" Role="tbl_ProjektGenreRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Genre">
+        <PropertyRef Name="GenreNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektGenreRel">
+        <PropertyRef Name="GenreNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_ProjektAuswertungsArtRel">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+      <PropertyRef Name="AuswertungsartNr" />
+    </Key>
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="AuswertungsartNr" Type="Int32" Nullable="false" />
+    <Property Name="Potential" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Auswertungsart" Relationship="AkquiseTestModel.FK__tbl_Proje__Auswe__5CD6CB2B" FromRole="tbl_ProjektAuswertungsArtRel" ToRole="tbl_Auswertungsart" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__5BE2A6F2" FromRole="tbl_ProjektAuswertungsArtRel" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektLandRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="LandNr" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__5FB337D6" FromRole="tbl_ProjektLandRel" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Land" Relationship="AkquiseTestModel.FK__tbl_Proje__LandN__60A75C0F" FromRole="tbl_ProjektLandRel" ToRole="tbl_Land" />
+  </EntityType>
+  <EntityType Name="tbl_Themen">
+    <Key>
+      <PropertyRef Name="ThemaID" />
+    </Key>
+    <Property Name="ThemaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="Thema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Theme__Entry__59063A47" FromRole="tbl_Themen" ToRole="tbl_Projekte" />
+  </EntityType>
+  <EntityType Name="tbl_TV_Einschaetzung">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+      <PropertyRef Name="SenderNr" />
+    </Key>
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="SenderNr" Type="Int32" Nullable="false" />
+    <Property Name="Kommentar" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Sender" Relationship="AkquiseTestModel.FK__tbl_TV_Ei__Sende__5629CD9C" FromRole="tbl_TV_Einschaetzung" ToRole="tbl_Sender" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_TV_Ei__Entry__5535A963" FromRole="tbl_TV_Einschaetzung" ToRole="tbl_Projekte" />
+  </EntityType>
+  <Association Name="FK__tbl_Proje__Auswe__5CD6CB2B">
+    <End Type="AkquiseTestModel.tbl_Auswertungsart" Role="tbl_Auswertungsart" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektAuswertungsArtRel" Role="tbl_ProjektAuswertungsArtRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Auswertungsart">
+        <PropertyRef Name="AuswertungsartNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektAuswertungsArtRel">
+        <PropertyRef Name="AuswertungsartNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TV_Ei__Sende__5629CD9C">
+    <End Type="AkquiseTestModel.tbl_Sender" Role="tbl_Sender" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_TV_Einschaetzung" Role="tbl_TV_Einschaetzung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Sender">
+        <PropertyRef Name="SenderNr" />
+      </Principal>
+      <Dependent Role="tbl_TV_Einschaetzung">
+        <PropertyRef Name="SenderNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Projekte">
+    <Key>
+      <PropertyRef Name="ENTRY_No" />
+    </Key>
+    <Property Name="ENTRY_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Land" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AnbieterNr" Type="Int32" Nullable="false" />
+    <Property Name="Kontakt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DATUM_ANGEBOT" Type="DateTime" Precision="3" />
+    <Property Name="TITEL_PROJEKT_FILM" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StatusNr" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Kurzbemerkung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegisseurNr" Type="Int32" />
+    <Property Name="Produzenten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Produktionsfirma" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Script_Buch" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Drehbeginn" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Lieferbar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Geschichte" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Asking" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Angebot" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sonstiges" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Besetzung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Budget" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="US_Release" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Beurteilung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="aktualisiert" Type="DateTime" Precision="3" />
+    <Property Name="Festival_akt" Type="Boolean" Nullable="false" />
+    <Property Name="ImdbNr" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="Historie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TV_Einschaetzung_Kommentar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Koproduktionseinschaetzung" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BudgetX" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BudgetWE" Type="Int32" Nullable="false" />
+    <Property Name="Budget_Kommentar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AskingX" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AskingWE" Type="Int32" Nullable="false" />
+    <Property Name="Leseliste" Type="Boolean" Nullable="false" />
+    <Property Name="Prioliste" Type="Boolean" Nullable="false" />
+    <Property Name="Sichtung" Type="Boolean" Nullable="false" />
+    <Property Name="BearbeiterNr" Type="Int32" Nullable="false" />
+    <Property Name="ProjektartNr" Type="Int32" Nullable="false" DefaultValue="1" />
+    <Property Name="LENr" Type="Int32" Nullable="false" />
+    <Property Name="verkauft_an" Type="Int32" Nullable="false" />
+    <Property Name="alter_Standard" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbl_Anbieter" Relationship="AkquiseTestModel.FK_tbl_Anbieter_tbl_Projekte_AnbieterNr" FromRole="tbl_Projekte" ToRole="tbl_Anbieter" />
+    <NavigationProperty Name="tbl_Bearbeiter" Relationship="AkquiseTestModel.FK__tbl_Proje__Bearb__7F2BE32F" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
+    <NavigationProperty Name="tbl_Lektoratseinschaetzung" Relationship="AkquiseTestModel.FK__tbl_Projek__LENr__01142BA1" FromRole="tbl_Projekte" ToRole="tbl_Lektoratseinschaetzung" />
+    <NavigationProperty Name="tbl_Projektart" Relationship="AkquiseTestModel.FK__tbl_Proje__Proje__00200768" FromRole="tbl_Projekte" ToRole="tbl_Projektart" />
+    <NavigationProperty Name="tbl_ProjektAuswertungsArtRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__5BE2A6F2" FromRole="tbl_Projekte" ToRole="tbl_ProjektAuswertungsArtRel" />
+    <NavigationProperty Name="tbl_AskingWE" Relationship="AkquiseTestModel.FK__tbl_Proje__Askin__7E37BEF6" FromRole="tbl_Projekte" ToRole="tbl_WE" />
+    <NavigationProperty Name="tbl_BudgetWE" Relationship="AkquiseTestModel.FK__tbl_Proje__Budge__7D439ABD" FromRole="tbl_Projekte" ToRole="tbl_WE" />
+    <NavigationProperty Name="tbl_ProjektPersonRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__4AB81AF0" FromRole="tbl_Projekte" ToRole="tbl_ProjektPersonRel" />
+    <NavigationProperty Name="tbl_ProjektGenreRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__4F7CD00D" FromRole="tbl_Projekte" ToRole="tbl_ProjektGenreRel" />
+    <NavigationProperty Name="tbl_ProjektLandRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__5FB337D6" FromRole="tbl_Projekte" ToRole="tbl_ProjektLandRel" />
+    <NavigationProperty Name="tbl_ProjektFirmaRel" Relationship="AkquiseTestModel.FK__tbl_Proje__Entry__6383C8BA" FromRole="tbl_Projekte" ToRole="tbl_ProjektFirmaRel" />
+    <NavigationProperty Name="tbl_Verleih" Relationship="AkquiseTestModel.FK__tbl_Proje__verka__02084FDA" FromRole="tbl_Projekte" ToRole="tbl_Verleih" />
+    <NavigationProperty Name="tbl_Themen" Relationship="AkquiseTestModel.FK__tbl_Theme__Entry__59063A47" FromRole="tbl_Projekte" ToRole="tbl_Themen" />
+    <NavigationProperty Name="tbl_TV_Einschaetzung" Relationship="AkquiseTestModel.FK__tbl_TV_Ei__Entry__5535A963" FromRole="tbl_Projekte" ToRole="tbl_TV_Einschaetzung" />
+    <NavigationProperty Name="tbl_Rating" Relationship="AkquiseTestModel.FK_tbl_Rating_tbl_Projekte" FromRole="tbl_Projekte" ToRole="tbl_Rating" />
+    <NavigationProperty Name="tbl_Regisseure" Relationship="AkquiseTestModel.FK_tbl_Regisseure_tbl_Projekte_RegisseurNr" FromRole="tbl_Projekte" ToRole="tbl_Regisseure" />
+    <NavigationProperty Name="tbl_Status" Relationship="AkquiseTestModel.FK_tbl_Status_tbl_Projekte_StatusNr" FromRole="tbl_Projekte" ToRole="tbl_Status" />
+    <Property Name="Kopien" Type="Int32" />
+    <Property Name="PandA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Backing" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BackingWE" Type="Int32" Nullable="false" />
+    <Property Name="AngebotX" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AngebotWE" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_AngebotWE" Relationship="AkquiseTestModel.FK__tbl_Proje__Angeb__76969D2E" FromRole="tbl_Projekte" ToRole="tbl_WE" />
+    <NavigationProperty Name="tbl_BackingWE" Relationship="AkquiseTestModel.FK__tbl_Proje__Backi__74AE54BC" FromRole="tbl_Projekte" ToRole="tbl_WE" />
+    <NavigationProperty Name="tbl_BlobProjekte" Relationship="AkquiseTestModel.FK__tbl_BlobP__Entry__01142BA1" FromRole="tbl_Projekte" ToRole="tbl_BlobProjekte" />
+    <Property Name="Admission" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Age_Rating" Type="Int32" />
+    <Property Name="MPAA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Age_Rating_Kommentar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Originaltitel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="aufgenommen_am" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="geaendert_von" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Beurteilung_Lektor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AskingGSE" Type="Boolean" Nullable="false" />
+    <Property Name="AskingSchweiz" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AngebotGSE" Type="Boolean" Nullable="false" />
+    <Property Name="AngebotSchweiz" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Kaufpreis" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="KaufpreisWE" Type="Int32" Nullable="false" />
+    <Property Name="KaufpreisGSE" Type="Boolean" Nullable="false" />
+    <Property Name="KaufpreisSchweiz" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="tbl_KaufpreisWE" Relationship="AkquiseTestModel.FK__tbl_Proje__Kaufp__1F98B2C1" FromRole="tbl_Projekte" ToRole="tbl_WE" />
+    <NavigationProperty Name="tbl_Links" Relationship="AkquiseTestModel.FK__tbl_Links__Entry__25518C17" FromRole="tbl_Projekte" ToRole="tbl_Links" />
+    <NavigationProperty Name="tbl_BlobData" Relationship="AkquiseTestModel.FK__tbl_BlobD__Entry__2EA5EC27" FromRole="tbl_Projekte" ToRole="tbl_BlobData" />
+    <Property Name="Archiv" Type="Boolean" Nullable="false" />
+    <Property Name="Produktionsliste" Type="Boolean" Nullable="false" />
+    <Property Name="Erinnerung" Type="DateTime" Precision="3" />
+    <Property Name="Erinnerung_an" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_WarenkorbProjektRel" Relationship="AkquiseTestModel.FK__tbl_Waren__Entry__4865BE2A" FromRole="tbl_Projekte" ToRole="tbl_WarenkorbProjektRel" />
+    <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FormatNr" Type="Int32" Nullable="false" DefaultValue="1" />
+    <NavigationProperty Name="tbl_Filmformate" Relationship="AkquiseTestModel.FK_Filmformate_Projekte" FromRole="tbl_Projekte" ToRole="tbl_Filmformate" />
+  </EntityType>
+  <Association Name="FK_tbl_Anbieter_tbl_Projekte_AnbieterNr">
+    <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Anbieter">
+        <PropertyRef Name="AnbieterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AnbieterNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Bearb__7F2BE32F">
+    <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bearbeiter">
+        <PropertyRef Name="BearbeiterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BearbeiterNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Projek__LENr__01142BA1">
+    <End Type="AkquiseTestModel.tbl_Lektoratseinschaetzung" Role="tbl_Lektoratseinschaetzung" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Lektoratseinschaetzung">
+        <PropertyRef Name="LENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="LENr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Proje__00200768">
+    <End Type="AkquiseTestModel.tbl_Projektart" Role="tbl_Projektart" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projektart">
+        <PropertyRef Name="ProjektartNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="ProjektartNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__5BE2A6F2">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektAuswertungsArtRel" Role="tbl_ProjektAuswertungsArtRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektAuswertungsArtRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Askin__7E37BEF6">
+    <End Type="AkquiseTestModel.tbl_WE" Role="tbl_WE" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AskingWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Budge__7D439ABD">
+    <End Type="AkquiseTestModel.tbl_WE" Role="tbl_WE" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BudgetWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__4AB81AF0">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektPersonRel" Role="tbl_ProjektPersonRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektPersonRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__4F7CD00D">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektGenreRel" Role="tbl_ProjektGenreRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektGenreRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__5FB337D6">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektLandRel" Role="tbl_ProjektLandRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektLandRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__6383C8BA">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektFirmaRel" Role="tbl_ProjektFirmaRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektFirmaRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__verka__02084FDA">
+    <End Type="AkquiseTestModel.tbl_Verleih" Role="tbl_Verleih" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Verleih">
+        <PropertyRef Name="VerleihNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="verkauft_an" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Theme__Entry__59063A47">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Themen" Role="tbl_Themen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_Themen">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TV_Ei__Entry__5535A963">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_TV_Einschaetzung" Role="tbl_TV_Einschaetzung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_TV_Einschaetzung">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Rating_tbl_Projekte">
+    <End Type="AkquiseTestModel.tbl_Rating" Role="tbl_Rating" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Rating">
+        <PropertyRef Name="Rating" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="Rating" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Regisseure_tbl_Projekte_RegisseurNr">
+    <End Type="AkquiseTestModel.tbl_Regisseure" Role="tbl_Regisseure" Multiplicity="0..1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Regisseure">
+        <PropertyRef Name="RegisseurNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="RegisseurNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Status_tbl_Projekte_StatusNr">
+    <End Type="AkquiseTestModel.tbl_Status" Role="tbl_Status" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Status">
+        <PropertyRef Name="StatusNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="StatusNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Angeb__76969D2E">
+    <End Type="AkquiseTestModel.tbl_WE" Role="tbl_WE" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AngebotWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Backi__74AE54BC">
+    <End Type="AkquiseTestModel.tbl_WE" Role="tbl_WE" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BackingWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Land">
+    <Key>
+      <PropertyRef Name="LandNr" />
+    </Key>
+    <Property Name="LandNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Land" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Sortierung" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_ProjektLandRel" Relationship="AkquiseTestModel.FK__tbl_Proje__LandN__60A75C0F" FromRole="tbl_Land" ToRole="tbl_ProjektLandRel" />
+  </EntityType>
+  <Association Name="FK__tbl_Proje__LandN__60A75C0F">
+    <End Type="AkquiseTestModel.tbl_Land" Role="tbl_Land" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_ProjektLandRel" Role="tbl_ProjektLandRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Land">
+        <PropertyRef Name="LandNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektLandRel">
+        <PropertyRef Name="LandNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_BlobProjekte">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="Lektorat" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Vergleichsfilm" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_BlobP__Entry__01142BA1" FromRole="tbl_BlobProjekte" ToRole="tbl_Projekte" />
+    <Property Name="LektoratFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VergleichsfilmFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__tbl_BlobP__Entry__01142BA1">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_BlobProjekte" Role="tbl_BlobProjekte" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_BlobProjekte">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Jobs">
+    <Key>
+      <PropertyRef Name="JobNr" />
+    </Key>
+    <Property Name="JobNr" Type="Int32" Nullable="false" />
+    <Property Name="Job" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Personen" Relationship="AkquiseTestModel.FK__tbl_Perso__JobOn__0F624AF8" FromRole="tbl_Jobs" ToRole="tbl_Personen" />
+    <NavigationProperty Name="tbl_Personen1" Relationship="AkquiseTestModel.FK__tbl_Perso__JobTh__114A936A" FromRole="tbl_Jobs" ToRole="tbl_Personen" />
+    <NavigationProperty Name="tbl_Personen2" Relationship="AkquiseTestModel.FK__tbl_Perso__JobTw__10566F31" FromRole="tbl_Jobs" ToRole="tbl_Personen" />
+  </EntityType>
+  <Association Name="FK__tbl_Perso__JobOn__0F624AF8">
+    <End Type="AkquiseTestModel.tbl_Jobs" Role="tbl_Jobs" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Personen" Role="tbl_Personen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Jobs">
+        <PropertyRef Name="JobNr" />
+      </Principal>
+      <Dependent Role="tbl_Personen">
+        <PropertyRef Name="JobOne" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Perso__JobTh__114A936A">
+    <End Type="AkquiseTestModel.tbl_Jobs" Role="tbl_Jobs" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Personen" Role="tbl_Personen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Jobs">
+        <PropertyRef Name="JobNr" />
+      </Principal>
+      <Dependent Role="tbl_Personen">
+        <PropertyRef Name="JobThree" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Perso__JobTw__10566F31">
+    <End Type="AkquiseTestModel.tbl_Jobs" Role="tbl_Jobs" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Personen" Role="tbl_Personen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Jobs">
+        <PropertyRef Name="JobNr" />
+      </Principal>
+      <Dependent Role="tbl_Personen">
+        <PropertyRef Name="JobTwo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Kaufp__1F98B2C1">
+    <End Type="AkquiseTestModel.tbl_WE" Role="tbl_WE" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="KaufpreisWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Links">
+    <Key>
+      <PropertyRef Name="LinkID" />
+    </Key>
+    <Property Name="LinkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="Titel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="URL" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Links__Entry__25518C17" FromRole="tbl_Links" ToRole="tbl_Projekte" />
+  </EntityType>
+  <Association Name="FK__tbl_Links__Entry__25518C17">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="AkquiseTestModel.tbl_Links" Role="tbl_Links" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_Links">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_BadCharacters">
+    <Key>
+      <PropertyRef Name="bad" />
+    </Key>
+    <Property Name="bad" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="good" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="qry_ProjekteIndex">
+    <Key>
+      <PropertyRef Name="ENTRY_No" />
+      <PropertyRef Name="Titel" />
+      <PropertyRef Name="ProjektartNr" />
+      <PropertyRef Name="Projektart" />
+      <PropertyRef Name="Rating" />
+      <PropertyRef Name="BearbeiterNr" />
+      <PropertyRef Name="zuständig" />
+      <PropertyRef Name="Status2" />
+      <PropertyRef Name="Festival_akt" />
+      <PropertyRef Name="AnbieterNr" />
+      <PropertyRef Name="StatusNr" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="LENr" />
+      <PropertyRef Name="Landsuche" />
+      <PropertyRef Name="Prioliste" />
+      <PropertyRef Name="Sichtung" />
+      <PropertyRef Name="Produktionsliste" />
+    </Key>
+    <Property Name="ENTRY_No" Type="Int32" Nullable="false" />
+    <Property Name="Titel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProjektartNr" Type="Int32" Nullable="false" />
+    <Property Name="Projektart" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="BearbeiterNr" Type="Int32" Nullable="false" />
+    <Property Name="zuständig" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Status2" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="Festival_akt" Type="Boolean" Nullable="false" />
+    <Property Name="AnbieterNr" Type="Int32" Nullable="false" />
+    <Property Name="Anbieter" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="AnbieterAF" Type="Boolean" />
+    <Property Name="DATUM_ANGEBOT" Type="DateTime" Precision="3" />
+    <Property Name="Land" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Regie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StatusNr" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LENr" Type="Int32" Nullable="false" />
+    <Property Name="Lektoratseinschaetzung" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Originaltitel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Landsuche" Type="String" Nullable="false" MaxLength="27" FixedLength="false" Unicode="true" />
+    <Property Name="Prioliste" Type="Boolean" Nullable="false" />
+    <Property Name="RegieMatchname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="aufgenommen_am" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="Sichtung" Type="Boolean" Nullable="false" />
+    <Property Name="Produktionsliste" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_BlobData">
+    <Key>
+      <PropertyRef Name="BlobNr" />
+    </Key>
+    <Property Name="BlobNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="BlobTitel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Blob" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_BlobD__Entry__2EA5EC27" FromRole="tbl_BlobData" ToRole="tbl_Projekte" />
+  </EntityType>
+  <Association Name="FK__tbl_BlobD__Entry__2EA5EC27">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="AkquiseTestModel.tbl_BlobData" Role="tbl_BlobData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_BlobData">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Warenkorb">
+    <Key>
+      <PropertyRef Name="WarenkorbNr" />
+    </Key>
+    <Property Name="WarenkorbNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Benutzer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_WarenkorbProjektRel" Relationship="AkquiseTestModel.FK__tbl_Waren__Waren__477199F1" FromRole="tbl_Warenkorb" ToRole="tbl_WarenkorbProjektRel" />
+  </EntityType>
+  <EntityType Name="qry_Firmamatch">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="Matchname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="qry_Personmatch">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="Matchname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="sp_Warenkorbprojekte_Result">
+    <Property Type="Int32" Name="ENTRY_No" Nullable="false" />
+    <Property Type="String" Name="Titel" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="ProjektartNr" Nullable="false" />
+    <Property Type="String" Name="Projektart" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="Rating" Nullable="false" MaxLength="3" />
+    <Property Type="Int32" Name="BearbeiterNr" Nullable="false" />
+    <Property Type="String" Name="zuständig" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="Status2" Nullable="false" MaxLength="7" />
+    <Property Type="Boolean" Name="Festival_akt" Nullable="false" />
+    <Property Type="Int32" Name="AnbieterNr" Nullable="false" />
+    <Property Type="String" Name="Anbieter" Nullable="true" MaxLength="40" />
+    <Property Type="Boolean" Name="AnbieterAF" Nullable="true" />
+    <Property Type="DateTime" Name="DATUM_ANGEBOT" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Land" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Regie" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="StatusNr" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="LENr" Nullable="false" />
+    <Property Type="String" Name="Lektoratseinschaetzung" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Originaltitel" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Landsuche" Nullable="false" MaxLength="27" />
+    <Property Type="Boolean" Name="Prioliste" Nullable="false" />
+    <Property Type="String" Name="RegieMatchname" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="aufgenommen_am" Nullable="false" Precision="23" />
+  </ComplexType>
+  <EntityType Name="tbl_WarenkorbProjektRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WarenkorbNr" Type="Int32" Nullable="false" />
+    <Property Name="EntryNo" Type="Int32" Nullable="false" />
+    <Property Name="Prio" Type="Int32" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Waren__Entry__4865BE2A" FromRole="tbl_WarenkorbProjektRel" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Warenkorb" Relationship="AkquiseTestModel.FK__tbl_Waren__Waren__477199F1" FromRole="tbl_WarenkorbProjektRel" ToRole="tbl_Warenkorb" />
+  </EntityType>
+  <Association Name="FK__tbl_Waren__Entry__4865BE2A">
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_WarenkorbProjektRel" Role="tbl_WarenkorbProjektRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY_No" />
+      </Principal>
+      <Dependent Role="tbl_WarenkorbProjektRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Waren__Waren__477199F1">
+    <End Type="AkquiseTestModel.tbl_Warenkorb" Role="tbl_Warenkorb" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_WarenkorbProjektRel" Role="tbl_WarenkorbProjektRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Warenkorb">
+        <PropertyRef Name="WarenkorbNr" />
+      </Principal>
+      <Dependent Role="tbl_WarenkorbProjektRel">
+        <PropertyRef Name="WarenkorbNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Filmformate">
+    <Key>
+      <PropertyRef Name="FormatNr" />
+    </Key>
+    <Property Name="FormatNr" Type="Int32" Nullable="false" />
+    <Property Name="Format" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK_Filmformate_Projekte" FromRole="tbl_Filmformate" ToRole="tbl_Projekte" />
+  </EntityType>
+  <Association Name="FK_Filmformate_Projekte">
+    <End Type="AkquiseTestModel.tbl_Filmformate" Role="tbl_Filmformate" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Filmformate">
+        <PropertyRef Name="FormatNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="FormatNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

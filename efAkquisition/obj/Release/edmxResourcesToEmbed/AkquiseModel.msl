@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AkquiseTestModelStoreContainer" CdmEntityContainer="AkquiseEntities">
+    <EntitySetMapping Name="tbl_Rating">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Rating">
+        <MappingFragment StoreEntitySet="tbl_Rating">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Regisseure">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Regisseure">
+        <MappingFragment StoreEntitySet="tbl_Regisseure">
+          <ScalarProperty Name="Matchname" ColumnName="Matchname" />
+          <ScalarProperty Name="RegisseurNr" ColumnName="RegisseurNr" />
+          <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+          <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+          <ScalarProperty Name="Werke" ColumnName="Werke" />
+          <ScalarProperty Name="Regie" ColumnName="Regie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Status">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Status">
+        <MappingFragment StoreEntitySet="tbl_Status">
+          <ScalarProperty Name="StatusNr" ColumnName="StatusNr" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Status2" ColumnName="Status2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Anbieter">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Anbieter">
+        <MappingFragment StoreEntitySet="tbl_Anbieter">
+          <ScalarProperty Name="AnbieterAF" ColumnName="AnbieterAF" />
+          <ScalarProperty Name="zuständig" ColumnName="zuständig" />
+          <ScalarProperty Name="Kontaktperson" ColumnName="Kontaktperson" />
+          <ScalarProperty Name="Kürzel" ColumnName="Kürzel" />
+          <ScalarProperty Name="AnbieterNr" ColumnName="AnbieterNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Laender">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Laender">
+        <MappingFragment StoreEntitySet="tbl_Laender">
+          <ScalarProperty Name="Landesname" ColumnName="Landesname" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Bearbeiter">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Bearbeiter">
+        <MappingFragment StoreEntitySet="tbl_Bearbeiter">
+          <ScalarProperty Name="Bearbeiter" ColumnName="Bearbeiter" />
+          <ScalarProperty Name="BearbeiterNr" ColumnName="BearbeiterNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qry_ProjekteASP">
+      <EntityTypeMapping TypeName="AkquiseTestModel.qry_ProjekteASP">
+        <MappingFragment StoreEntitySet="qry_ProjekteASP">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Anfangsbuchstabe" ColumnName="Anfangsbuchstabe" />
+          <ScalarProperty Name="Festival_akt" ColumnName="Festival_akt" />
+          <ScalarProperty Name="Angebot" ColumnName="Angebot" />
+          <ScalarProperty Name="Asking" ColumnName="Asking" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="Beurteilung" ColumnName="Beurteilung" />
+          <ScalarProperty Name="Sonstiges" ColumnName="Sonstiges" />
+          <ScalarProperty Name="Besetzung" ColumnName="Besetzung" />
+          <ScalarProperty Name="Geschichte" ColumnName="Geschichte" />
+          <ScalarProperty Name="US_Release" ColumnName="US Release" />
+          <ScalarProperty Name="Lieferbar" ColumnName="Lieferbar" />
+          <ScalarProperty Name="Drehbeginn" ColumnName="Drehbeginn" />
+          <ScalarProperty Name="Script_Buch" ColumnName="Script/Buch" />
+          <ScalarProperty Name="Produktionsfirma" ColumnName="Produktionsfirma" />
+          <ScalarProperty Name="Produzenten" ColumnName="Produzenten" />
+          <ScalarProperty Name="Werke" ColumnName="Werke" />
+          <ScalarProperty Name="Regie" ColumnName="Regie" />
+          <ScalarProperty Name="RegisseurNr" ColumnName="RegisseurNr" />
+          <ScalarProperty Name="Bearbeiter" ColumnName="Bearbeiter" />
+          <ScalarProperty Name="zuständig" ColumnName="zuständig" />
+          <ScalarProperty Name="AnbieterAF" ColumnName="AnbieterAF" />
+          <ScalarProperty Name="Anb" ColumnName="Anb" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+          <ScalarProperty Name="AnbieterNr" ColumnName="AnbieterNr" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="xabgelehnt" ColumnName="xabgelehnt" />
+          <ScalarProperty Name="Status2" ColumnName="Status2" />
+          <ScalarProperty Name="StatusNr" ColumnName="StatusNr" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="aktualisiert" ColumnName="aktualisiert" />
+          <ScalarProperty Name="DATUM_ANGEBOT" ColumnName="DATUM/ANGEBOT" />
+          <ScalarProperty Name="TITEL_PROJEKT_FILM" ColumnName="TITEL/PROJEKT/FILM" />
+          <ScalarProperty Name="ENTRY_No" ColumnName="ENTRY No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Auswertungsart">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Auswertungsart">
+        <MappingFragment StoreEntitySet="tbl_Auswertungsart">
+          <ScalarProperty Name="Auswertungsart" ColumnName="Auswertungsart" />
+          <ScalarProperty Name="AuswertungsartNr" ColumnName="AuswertungsartNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Lektoratseinschaetzung">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Lektoratseinschaetzung">
+        <MappingFragment StoreEntitySet="tbl_Lektoratseinschaetzung">
+          <ScalarProperty Name="Lektoratseinschaetzung" ColumnName="Lektoratseinschaetzung" />
+          <ScalarProperty Name="LENr" ColumnName="LENr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Projektart">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Projektart">
+        <MappingFragment StoreEntitySet="tbl_Projektart">
+          <ScalarProperty Name="Projektart" ColumnName="Projektart" />
+          <ScalarProperty Name="ProjektartNr" ColumnName="ProjektartNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Sender">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Sender">
+        <MappingFragment StoreEntitySet="tbl_Sender">
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="SenderNr" ColumnName="SenderNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Verleih">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Verleih">
+        <MappingFragment StoreEntitySet="tbl_Verleih">
+          <ScalarProperty Name="Verleih" ColumnName="Verleih" />
+          <ScalarProperty Name="VerleihNr" ColumnName="VerleihNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_WE">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_WE">
+        <MappingFragment StoreEntitySet="tbl_WE">
+          <ScalarProperty Name="Waehrung" ColumnName="Waehrung" />
+          <ScalarProperty Name="WENr" ColumnName="WENr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Personen">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Personen">
+        <MappingFragment StoreEntitySet="tbl_Personen">
+          <ScalarProperty Name="IsFirma" ColumnName="IsFirma" />
+          <ScalarProperty Name="Matchname" ColumnName="Matchname" />
+          <ScalarProperty Name="JobThree" ColumnName="JobThree" />
+          <ScalarProperty Name="JobTwo" ColumnName="JobTwo" />
+          <ScalarProperty Name="JobOne" ColumnName="JobOne" />
+          <ScalarProperty Name="Filme" ColumnName="Filme" />
+          <ScalarProperty Name="Starmeter" ColumnName="Starmeter" />
+          <ScalarProperty Name="ImdbID" ColumnName="ImdbID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PersonNr" ColumnName="PersonNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjektPersonRel">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_ProjektPersonRel">
+        <MappingFragment StoreEntitySet="tbl_ProjektPersonRel">
+          <ScalarProperty Name="ersetzt" ColumnName="ersetzt" />
+          <ScalarProperty Name="FunktionNr" ColumnName="FunktionNr" />
+          <ScalarProperty Name="Prio" ColumnName="Prio" />
+          <ScalarProperty Name="PersonNr" ColumnName="PersonNr" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Firmen">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Firmen">
+        <MappingFragment StoreEntitySet="tbl_Firmen">
+          <ScalarProperty Name="Matchname" ColumnName="Matchname" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="Companymeter" ColumnName="Companymeter" />
+          <ScalarProperty Name="ImdbID" ColumnName="ImdbID" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="FirmaNr" ColumnName="FirmaNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Funktionen">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Funktionen">
+        <MappingFragment StoreEntitySet="tbl_Funktionen">
+          <ScalarProperty Name="Funktion" ColumnName="Funktion" />
+          <ScalarProperty Name="FunktionNr" ColumnName="FunktionNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Genre">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Genre">
+        <MappingFragment StoreEntitySet="tbl_Genre">
+          <ScalarProperty Name="Sortierung" ColumnName="Sortierung" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="GenreNr" ColumnName="GenreNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjektFirmaRel">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_ProjektFirmaRel">
+        <MappingFragment StoreEntitySet="tbl_ProjektFirmaRel">
+          <ScalarProperty Name="Prio" ColumnName="Prio" />
+          <ScalarProperty Name="FirmaNr" ColumnName="FirmaNr" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjektGenreRel">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_ProjektGenreRel">
+        <MappingFragment StoreEntitySet="tbl_ProjektGenreRel">
+          <ScalarProperty Name="GenreNr" ColumnName="GenreNr" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjektAuswertungsArtRel">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_ProjektAuswertungsArtRel">
+        <MappingFragment StoreEntitySet="tbl_ProjektAuswertungsArtRel">
+          <ScalarProperty Name="Potential" ColumnName="Potential" />
+          <ScalarProperty Name="AuswertungsartNr" ColumnName="AuswertungsartNr" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjektLandRel">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_ProjektLandRel">
+        <MappingFragment StoreEntitySet="tbl_ProjektLandRel">
+          <ScalarProperty Name="LandNr" ColumnName="LandNr" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Themen">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Themen">
+        <MappingFragment StoreEntitySet="tbl_Themen">
+          <ScalarProperty Name="Thema" ColumnName="Thema" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="ThemaID" ColumnName="ThemaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TV_Einschaetzung">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_TV_Einschaetzung">
+        <MappingFragment StoreEntitySet="tbl_TV_Einschaetzung">
+          <ScalarProperty Name="Kommentar" ColumnName="Kommentar" />
+          <ScalarProperty Name="SenderNr" ColumnName="SenderNr" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Projekte">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Projekte">
+        <MappingFragment StoreEntitySet="tbl_Projekte">
+          <ScalarProperty Name="FormatNr" ColumnName="FormatNr" />
+          <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
+          <ScalarProperty Name="Erinnerung_an" ColumnName="Erinnerung_an" />
+          <ScalarProperty Name="Erinnerung" ColumnName="Erinnerung" />
+          <ScalarProperty Name="Produktionsliste" ColumnName="Produktionsliste" />
+          <ScalarProperty Name="Archiv" ColumnName="Archiv" />
+          <ScalarProperty Name="KaufpreisSchweiz" ColumnName="KaufpreisSchweiz" />
+          <ScalarProperty Name="KaufpreisGSE" ColumnName="KaufpreisGSE" />
+          <ScalarProperty Name="KaufpreisWE" ColumnName="KaufpreisWE" />
+          <ScalarProperty Name="Kaufpreis" ColumnName="Kaufpreis" />
+          <ScalarProperty Name="AngebotSchweiz" ColumnName="AngebotSchweiz" />
+          <ScalarProperty Name="AngebotGSE" ColumnName="AngebotGSE" />
+          <ScalarProperty Name="AskingSchweiz" ColumnName="AskingSchweiz" />
+          <ScalarProperty Name="AskingGSE" ColumnName="AskingGSE" />
+          <ScalarProperty Name="Beurteilung_Lektor" ColumnName="Beurteilung_Lektor" />
+          <ScalarProperty Name="geaendert_von" ColumnName="geaendert_von" />
+          <ScalarProperty Name="aufgenommen_am" ColumnName="aufgenommen_am" />
+          <ScalarProperty Name="Originaltitel" ColumnName="Originaltitel" />
+          <ScalarProperty Name="Age_Rating_Kommentar" ColumnName="Age_Rating_Kommentar" />
+          <ScalarProperty Name="MPAA" ColumnName="MPAA" />
+          <ScalarProperty Name="Age_Rating" ColumnName="Age_Rating" />
+          <ScalarProperty Name="Admission" ColumnName="Admission" />
+          <ScalarProperty Name="AngebotWE" ColumnName="AngebotWE" />
+          <ScalarProperty Name="AngebotX" ColumnName="AngebotX" />
+          <ScalarProperty Name="BackingWE" ColumnName="BackingWE" />
+          <ScalarProperty Name="Backing" ColumnName="Backing" />
+          <ScalarProperty Name="PandA" ColumnName="PandA" />
+          <ScalarProperty Name="Kopien" ColumnName="Kopien" />
+          <ScalarProperty Name="alter_Standard" ColumnName="alter_Standard" />
+          <ScalarProperty Name="verkauft_an" ColumnName="verkauft_an" />
+          <ScalarProperty Name="LENr" ColumnName="LENr" />
+          <ScalarProperty Name="ProjektartNr" ColumnName="ProjektartNr" />
+          <ScalarProperty Name="BearbeiterNr" ColumnName="BearbeiterNr" />
+          <ScalarProperty Name="Sichtung" ColumnName="Sichtung" />
+          <ScalarProperty Name="Prioliste" ColumnName="Prioliste" />
+          <ScalarProperty Name="Leseliste" ColumnName="Leseliste" />
+          <ScalarProperty Name="AskingWE" ColumnName="AskingWE" />
+          <ScalarProperty Name="AskingX" ColumnName="AskingX" />
+          <ScalarProperty Name="Budget_Kommentar" ColumnName="Budget_Kommentar" />
+          <ScalarProperty Name="BudgetWE" ColumnName="BudgetWE" />
+          <ScalarProperty Name="BudgetX" ColumnName="BudgetX" />
+          <ScalarProperty Name="Koproduktionseinschaetzung" ColumnName="Koproduktionseinschaetzung" />
+          <ScalarProperty Name="TV_Einschaetzung_Kommentar" ColumnName="TV_Einschaetzung_Kommentar" />
+          <ScalarProperty Name="Historie" ColumnName="Historie" />
+          <ScalarProperty Name="ImdbNr" ColumnName="ImdbNr" />
+          <ScalarProperty Name="Festival_akt" ColumnName="Festival_akt" />
+          <ScalarProperty Name="aktualisiert" ColumnName="aktualisiert" />
+          <ScalarProperty Name="Beurteilung" ColumnName="Beurteilung" />
+          <ScalarProperty Name="US_Release" ColumnName="US Release" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="Besetzung" ColumnName="Besetzung" />
+          <ScalarProperty Name="Sonstiges" ColumnName="Sonstiges" />
+          <ScalarProperty Name="Angebot" ColumnName="Angebot" />
+          <ScalarProperty Name="Asking" ColumnName="Asking" />
+          <ScalarProperty Name="Geschichte" ColumnName="Geschichte" />
+          <ScalarProperty Name="Lieferbar" ColumnName="Lieferbar" />
+          <ScalarProperty Name="Drehbeginn" ColumnName="Drehbeginn" />
+          <ScalarProperty Name="Script_Buch" ColumnName="Script/Buch" />
+          <ScalarProperty Name="Produktionsfirma" ColumnName="Produktionsfirma" />
+          <ScalarProperty Name="Produzenten" ColumnName="Produzenten" />
+          <ScalarProperty Name="RegisseurNr" ColumnName="RegisseurNr" />
+          <ScalarProperty Name="Kurzbemerkung" ColumnName="Kurzbemerkung" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="StatusNr" ColumnName="StatusNr" />
+          <ScalarProperty Name="TITEL_PROJEKT_FILM" ColumnName="TITEL/PROJEKT/FILM" />
+          <ScalarProperty Name="DATUM_ANGEBOT" ColumnName="DATUM/ANGEBOT" />
+          <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+          <ScalarProperty Name="AnbieterNr" ColumnName="AnbieterNr" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="ENTRY_No" ColumnName="ENTRY No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Land">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Land">
+        <MappingFragment StoreEntitySet="tbl_Land">
+          <ScalarProperty Name="Sortierung" ColumnName="Sortierung" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="LandNr" ColumnName="LandNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BlobProjekte">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_BlobProjekte">
+        <MappingFragment StoreEntitySet="tbl_BlobProjekte">
+          <ScalarProperty Name="VergleichsfilmFileName" ColumnName="VergleichsfilmFileName" />
+          <ScalarProperty Name="LektoratFileName" ColumnName="LektoratFileName" />
+          <ScalarProperty Name="Vergleichsfilm" ColumnName="Vergleichsfilm" />
+          <ScalarProperty Name="Lektorat" ColumnName="Lektorat" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Jobs">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Jobs">
+        <MappingFragment StoreEntitySet="tbl_Jobs">
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="JobNr" ColumnName="JobNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Links">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Links">
+        <MappingFragment StoreEntitySet="tbl_Links">
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Titel" ColumnName="Titel" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BadCharacters">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_BadCharacters">
+        <MappingFragment StoreEntitySet="tbl_BadCharacters">
+          <ScalarProperty Name="good" ColumnName="good" />
+          <ScalarProperty Name="bad" ColumnName="bad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qry_ProjekteIndex">
+      <EntityTypeMapping TypeName="AkquiseTestModel.qry_ProjekteIndex">
+        <MappingFragment StoreEntitySet="qry_ProjekteIndex">
+          <ScalarProperty Name="Produktionsliste" ColumnName="Produktionsliste" />
+          <ScalarProperty Name="Sichtung" ColumnName="Sichtung" />
+          <ScalarProperty Name="aufgenommen_am" ColumnName="aufgenommen_am" />
+          <ScalarProperty Name="RegieMatchname" ColumnName="RegieMatchname" />
+          <ScalarProperty Name="Prioliste" ColumnName="Prioliste" />
+          <ScalarProperty Name="Landsuche" ColumnName="Landsuche" />
+          <ScalarProperty Name="Originaltitel" ColumnName="Originaltitel" />
+          <ScalarProperty Name="Lektoratseinschaetzung" ColumnName="Lektoratseinschaetzung" />
+          <ScalarProperty Name="LENr" ColumnName="LENr" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StatusNr" ColumnName="StatusNr" />
+          <ScalarProperty Name="Regie" ColumnName="Regie" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="DATUM_ANGEBOT" ColumnName="DATUM/ANGEBOT" />
+          <ScalarProperty Name="AnbieterAF" ColumnName="AnbieterAF" />
+          <ScalarProperty Name="Anbieter" ColumnName="Anbieter" />
+          <ScalarProperty Name="AnbieterNr" ColumnName="AnbieterNr" />
+          <ScalarProperty Name="Festival_akt" ColumnName="Festival_akt" />
+          <ScalarProperty Name="Status2" ColumnName="Status2" />
+          <ScalarProperty Name="zuständig" ColumnName="zuständig" />
+          <ScalarProperty Name="BearbeiterNr" ColumnName="BearbeiterNr" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Projektart" ColumnName="Projektart" />
+          <ScalarProperty Name="ProjektartNr" ColumnName="ProjektartNr" />
+          <ScalarProperty Name="Titel" ColumnName="Titel" />
+          <ScalarProperty Name="ENTRY_No" ColumnName="ENTRY No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BlobData">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_BlobData">
+        <MappingFragment StoreEntitySet="tbl_BlobData">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Blob" ColumnName="Blob" />
+          <ScalarProperty Name="BlobTitel" ColumnName="BlobTitel" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="BlobNr" ColumnName="BlobNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_UpdateFestivalAkt" FunctionName="AkquiseTestModel.Store.sp_UpdateFestivalAkt" />
+    <EntitySetMapping Name="tbl_Warenkorb">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Warenkorb">
+        <MappingFragment StoreEntitySet="tbl_Warenkorb">
+          <ScalarProperty Name="Benutzer" ColumnName="Benutzer" />
+          <ScalarProperty Name="WarenkorbNr" ColumnName="WarenkorbNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qry_Firmamatch">
+      <EntityTypeMapping TypeName="AkquiseTestModel.qry_Firmamatch">
+        <MappingFragment StoreEntitySet="qry_Firmamatch">
+          <ScalarProperty Name="Matchname" ColumnName="Matchname" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qry_Personmatch">
+      <EntityTypeMapping TypeName="AkquiseTestModel.qry_Personmatch">
+        <MappingFragment StoreEntitySet="qry_Personmatch">
+          <ScalarProperty Name="Matchname" ColumnName="Matchname" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_Warenkorbprojekte" FunctionName="AkquiseTestModel.Store.sp_Warenkorbprojekte" />
+    <EntitySetMapping Name="tbl_WarenkorbProjektRel">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_WarenkorbProjektRel">
+        <MappingFragment StoreEntitySet="tbl_WarenkorbProjektRel">
+          <ScalarProperty Name="Prio" ColumnName="Prio" />
+          <ScalarProperty Name="EntryNo" ColumnName="EntryNo" />
+          <ScalarProperty Name="WarenkorbNr" ColumnName="WarenkorbNr" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="fn_Volltext" FunctionName="AkquiseTestModel.Store.fn_Volltext" />
+    <EntitySetMapping Name="tbl_Filmformate">
+      <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Filmformate">
+        <MappingFragment StoreEntitySet="tbl_Filmformate">
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="FormatNr" ColumnName="FormatNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

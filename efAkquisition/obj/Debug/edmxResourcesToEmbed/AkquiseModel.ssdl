@@ -1,0 +1,1149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AkquiseTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Anbieter">
+    <Key>
+      <PropertyRef Name="AnbieterNr" />
+    </Key>
+    <Property Name="AnbieterNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kürzel" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Kontaktperson" Type="nvarchar" MaxLength="30" />
+    <Property Name="zuständig" Type="int" Nullable="false" />
+    <Property Name="AnbieterAF" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Auswertungsart">
+    <Key>
+      <PropertyRef Name="AuswertungsartNr" />
+    </Key>
+    <Property Name="AuswertungsartNr" Type="int" Nullable="false" />
+    <Property Name="Auswertungsart" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_BadCharacters">
+    <Key>
+      <PropertyRef Name="bad" />
+    </Key>
+    <Property Name="bad" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="good" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tbl_Bearbeiter">
+    <Key>
+      <PropertyRef Name="BearbeiterNr" />
+    </Key>
+    <Property Name="BearbeiterNr" Type="int" Nullable="false" />
+    <Property Name="Bearbeiter" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_BlobData">
+    <Key>
+      <PropertyRef Name="BlobNr" />
+    </Key>
+    <Property Name="BlobNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="BlobTitel" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Blob" Type="varbinary(max)" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_BlobProjekte">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="Lektorat" Type="varbinary(max)" />
+    <Property Name="LektoratFileName" Type="varchar" MaxLength="100" />
+    <Property Name="Vergleichsfilm" Type="varbinary(max)" />
+    <Property Name="VergleichsfilmFileName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Filmformate">
+    <Key>
+      <PropertyRef Name="FormatNr" />
+    </Key>
+    <Property Name="FormatNr" Type="int" Nullable="false" />
+    <Property Name="Format" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Firmen">
+    <Key>
+      <PropertyRef Name="FirmaNr" />
+    </Key>
+    <Property Name="FirmaNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ImdbID" Type="varchar" MaxLength="9" />
+    <Property Name="Companymeter" Type="int" />
+    <Property Name="Job" Type="varchar" MaxLength="25" />
+    <Property Name="Matchname" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Funktionen">
+    <Key>
+      <PropertyRef Name="FunktionNr" />
+    </Key>
+    <Property Name="FunktionNr" Type="int" Nullable="false" />
+    <Property Name="Funktion" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Genre">
+    <Key>
+      <PropertyRef Name="GenreNr" />
+    </Key>
+    <Property Name="GenreNr" Type="int" Nullable="false" />
+    <Property Name="Genre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Sortierung" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Jobs">
+    <Key>
+      <PropertyRef Name="JobNr" />
+    </Key>
+    <Property Name="JobNr" Type="int" Nullable="false" />
+    <Property Name="Job" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Laender">
+    <Key>
+      <PropertyRef Name="Land" />
+    </Key>
+    <Property Name="Land" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Landesname" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Land">
+    <Key>
+      <PropertyRef Name="LandNr" />
+    </Key>
+    <Property Name="LandNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Land" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Sortierung" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Lektoratseinschaetzung">
+    <Key>
+      <PropertyRef Name="LENr" />
+    </Key>
+    <Property Name="LENr" Type="int" Nullable="false" />
+    <Property Name="Lektoratseinschaetzung" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Links">
+    <Key>
+      <PropertyRef Name="LinkID" />
+    </Key>
+    <Property Name="LinkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="Titel" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="URL" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Personen">
+    <Key>
+      <PropertyRef Name="PersonNr" />
+    </Key>
+    <Property Name="PersonNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ImdbID" Type="varchar" MaxLength="9" />
+    <Property Name="Starmeter" Type="int" />
+    <Property Name="Filme" Type="varchar" MaxLength="255" />
+    <Property Name="JobOne" Type="int" Nullable="false" />
+    <Property Name="JobTwo" Type="int" Nullable="false" />
+    <Property Name="JobThree" Type="int" Nullable="false" />
+    <Property Name="Matchname" Type="varchar" MaxLength="100" />
+    <Property Name="IsFirma" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Projektart">
+    <Key>
+      <PropertyRef Name="ProjektartNr" />
+    </Key>
+    <Property Name="ProjektartNr" Type="int" Nullable="false" />
+    <Property Name="Projektart" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektAuswertungsArtRel">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+      <PropertyRef Name="AuswertungsartNr" />
+    </Key>
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="AuswertungsartNr" Type="int" Nullable="false" />
+    <Property Name="Potential" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Projekte">
+    <Key>
+      <PropertyRef Name="ENTRY No" />
+    </Key>
+    <Property Name="ENTRY No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Land" Type="nvarchar" MaxLength="20" />
+    <Property Name="AnbieterNr" Type="int" Nullable="false" />
+    <Property Name="Kontakt" Type="nvarchar" MaxLength="50" />
+    <Property Name="DATUM/ANGEBOT" Type="datetime" />
+    <Property Name="TITEL/PROJEKT/FILM" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StatusNr" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Kurzbemerkung" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegisseurNr" Type="int" />
+    <Property Name="Produzenten" Type="nvarchar" MaxLength="255" />
+    <Property Name="Produktionsfirma" Type="nvarchar" MaxLength="255" />
+    <Property Name="Script/Buch" Type="nvarchar" MaxLength="255" />
+    <Property Name="Drehbeginn" Type="nvarchar" MaxLength="255" />
+    <Property Name="Lieferbar" Type="nvarchar" MaxLength="255" />
+    <Property Name="Geschichte" Type="text" />
+    <Property Name="Asking" Type="nvarchar" MaxLength="255" />
+    <Property Name="Angebot" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sonstiges" Type="text" />
+    <Property Name="Besetzung" Type="text" />
+    <Property Name="Budget" Type="nvarchar" MaxLength="255" />
+    <Property Name="US Release" Type="nvarchar" MaxLength="255" />
+    <Property Name="Beurteilung" Type="text" />
+    <Property Name="aktualisiert" Type="datetime" />
+    <Property Name="Festival_akt" Type="bit" Nullable="false" />
+    <Property Name="ImdbNr" Type="char" MaxLength="9" />
+    <Property Name="ProjektartNr" Type="int" Nullable="false" />
+    <Property Name="BearbeiterNr" Type="int" Nullable="false" />
+    <Property Name="LENr" Type="int" Nullable="false" />
+    <Property Name="verkauft_an" Type="int" Nullable="false" />
+    <Property Name="Kopien" Type="int" />
+    <Property Name="PandA" Type="money" />
+    <Property Name="Backing" Type="money" />
+    <Property Name="BackingWE" Type="int" Nullable="false" />
+    <Property Name="Historie" Type="text" />
+    <Property Name="TV_Einschaetzung_Kommentar" Type="varchar" MaxLength="255" />
+    <Property Name="Koproduktionseinschaetzung" Type="varchar" MaxLength="255" />
+    <Property Name="AskingX" Type="money" />
+    <Property Name="AskingWE" Type="int" Nullable="false" />
+    <Property Name="AngebotX" Type="money" />
+    <Property Name="AngebotWE" Type="int" Nullable="false" />
+    <Property Name="BudgetX" Type="money" />
+    <Property Name="BudgetWE" Type="int" Nullable="false" />
+    <Property Name="Budget_Kommentar" Type="varchar" MaxLength="100" />
+    <Property Name="alter_Standard" Type="bit" Nullable="false" />
+    <Property Name="Leseliste" Type="bit" Nullable="false" />
+    <Property Name="Prioliste" Type="bit" Nullable="false" />
+    <Property Name="Sichtung" Type="bit" Nullable="false" />
+    <Property Name="Admission" Type="money" />
+    <Property Name="Age_Rating" Type="int" />
+    <Property Name="MPAA" Type="varchar" MaxLength="5" />
+    <Property Name="Age_Rating_Kommentar" Type="varchar" MaxLength="100" />
+    <Property Name="Originaltitel" Type="nvarchar" MaxLength="100" />
+    <Property Name="aufgenommen_am" Type="datetime" Nullable="false" />
+    <Property Name="geaendert_von" Type="varchar" MaxLength="50" />
+    <Property Name="Beurteilung_Lektor" Type="text" />
+    <Property Name="AskingGSE" Type="bit" Nullable="false" />
+    <Property Name="AskingSchweiz" Type="money" />
+    <Property Name="AngebotGSE" Type="bit" Nullable="false" />
+    <Property Name="AngebotSchweiz" Type="money" />
+    <Property Name="Kaufpreis" Type="money" />
+    <Property Name="KaufpreisWE" Type="int" Nullable="false" />
+    <Property Name="KaufpreisGSE" Type="bit" Nullable="false" />
+    <Property Name="KaufpreisSchweiz" Type="money" />
+    <Property Name="Archiv" Type="bit" Nullable="false" />
+    <Property Name="Produktionsliste" Type="bit" Nullable="false" />
+    <Property Name="Erinnerung" Type="datetime" />
+    <Property Name="Erinnerung_an" Type="varchar" MaxLength="100" />
+    <Property Name="Synopsis" Type="text" />
+    <Property Name="FormatNr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektFirmaRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="FirmaNr" Type="int" Nullable="false" />
+    <Property Name="Prio" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektGenreRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="GenreNr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektLandRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="LandNr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjektPersonRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="PersonNr" Type="int" Nullable="false" />
+    <Property Name="Prio" Type="int" />
+    <Property Name="FunktionNr" Type="int" Nullable="false" />
+    <Property Name="ersetzt" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Rating">
+    <Key>
+      <PropertyRef Name="Rating" />
+    </Key>
+    <Property Name="Rating" Type="nvarchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Regisseure">
+    <Key>
+      <PropertyRef Name="RegisseurNr" />
+    </Key>
+    <Property Name="RegisseurNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nachname" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Vorname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Werke" Type="text" />
+    <Property Name="Regie" Type="nvarchar" MaxLength="82" StoreGeneratedPattern="Computed" />
+    <Property Name="Matchname" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Sender">
+    <Key>
+      <PropertyRef Name="SenderNr" />
+    </Key>
+    <Property Name="SenderNr" Type="int" Nullable="false" />
+    <Property Name="Sender" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Status">
+    <Key>
+      <PropertyRef Name="StatusNr" />
+    </Key>
+    <Property Name="StatusNr" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status2" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Themen">
+    <Key>
+      <PropertyRef Name="ThemaID" />
+    </Key>
+    <Property Name="ThemaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="Thema" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_TV_Einschaetzung">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+      <PropertyRef Name="SenderNr" />
+    </Key>
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="SenderNr" Type="int" Nullable="false" />
+    <Property Name="Kommentar" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Verleih">
+    <Key>
+      <PropertyRef Name="VerleihNr" />
+    </Key>
+    <Property Name="VerleihNr" Type="int" Nullable="false" />
+    <Property Name="Verleih" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Warenkorb">
+    <Key>
+      <PropertyRef Name="WarenkorbNr" />
+    </Key>
+    <Property Name="WarenkorbNr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Benutzer" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_WarenkorbProjektRel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WarenkorbNr" Type="int" Nullable="false" />
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="Prio" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_WE">
+    <Key>
+      <PropertyRef Name="WENr" />
+    </Key>
+    <Property Name="WENr" Type="int" Nullable="false" />
+    <Property Name="Waehrung" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Akquisition.dbo.qry_Firmamatch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qry_Firmamatch">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="Matchname" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Akquisition.dbo.qry_Personmatch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qry_Personmatch">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="Matchname" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteASP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qry_ProjekteASP">
+    <Key>
+      <PropertyRef Name="ENTRY No" />
+    </Key>
+    <Property Name="ENTRY No" Type="int" Nullable="false" />
+    <Property Name="TITEL/PROJEKT/FILM" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DATUM/ANGEBOT" Type="datetime" />
+    <Property Name="aktualisiert" Type="datetime" />
+    <Property Name="Rating" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="StatusNr" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status2" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="xabgelehnt" Type="int" Nullable="false" />
+    <Property Name="Land" Type="nvarchar" MaxLength="20" />
+    <Property Name="AnbieterNr" Type="int" Nullable="false" />
+    <Property Name="Kontakt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Firma" Type="nvarchar" MaxLength="40" />
+    <Property Name="Anb" Type="nvarchar" MaxLength="73" />
+    <Property Name="AnbieterAF" Type="bit" />
+    <Property Name="zuständig" Type="int" />
+    <Property Name="Bearbeiter" Type="char" MaxLength="2" />
+    <Property Name="RegisseurNr" Type="int" />
+    <Property Name="Regie" Type="nvarchar" MaxLength="82" />
+    <Property Name="Werke" Type="text" />
+    <Property Name="Produzenten" Type="nvarchar" MaxLength="255" />
+    <Property Name="Produktionsfirma" Type="nvarchar" MaxLength="255" />
+    <Property Name="Script/Buch" Type="nvarchar" MaxLength="255" />
+    <Property Name="Drehbeginn" Type="nvarchar" MaxLength="255" />
+    <Property Name="Lieferbar" Type="nvarchar" MaxLength="255" />
+    <Property Name="US Release" Type="nvarchar" MaxLength="255" />
+    <Property Name="Geschichte" Type="text" />
+    <Property Name="Besetzung" Type="text" />
+    <Property Name="Sonstiges" Type="text" />
+    <Property Name="Beurteilung" Type="text" />
+    <Property Name="Budget" Type="nvarchar" MaxLength="255" />
+    <Property Name="Asking" Type="nvarchar" MaxLength="255" />
+    <Property Name="Angebot" Type="nvarchar" MaxLength="255" />
+    <Property Name="Festival_akt" Type="bit" Nullable="false" />
+    <Property Name="Anfangsbuchstabe" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qry_ProjekteIndex">
+    <Key>
+      <PropertyRef Name="ENTRY No" />
+      <PropertyRef Name="Titel" />
+      <PropertyRef Name="ProjektartNr" />
+      <PropertyRef Name="Projektart" />
+      <PropertyRef Name="Rating" />
+      <PropertyRef Name="BearbeiterNr" />
+      <PropertyRef Name="zuständig" />
+      <PropertyRef Name="Status2" />
+      <PropertyRef Name="Festival_akt" />
+      <PropertyRef Name="AnbieterNr" />
+      <PropertyRef Name="StatusNr" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="LENr" />
+      <PropertyRef Name="Landsuche" />
+      <PropertyRef Name="Prioliste" />
+      <PropertyRef Name="Sichtung" />
+      <PropertyRef Name="Produktionsliste" />
+    </Key>
+    <Property Name="ENTRY No" Type="int" Nullable="false" />
+    <Property Name="Titel" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProjektartNr" Type="int" Nullable="false" />
+    <Property Name="Projektart" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Rating" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="BearbeiterNr" Type="int" Nullable="false" />
+    <Property Name="zuständig" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Status2" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Festival_akt" Type="bit" Nullable="false" />
+    <Property Name="AnbieterNr" Type="int" Nullable="false" />
+    <Property Name="Anbieter" Type="nvarchar" MaxLength="40" />
+    <Property Name="AnbieterAF" Type="bit" />
+    <Property Name="DATUM/ANGEBOT" Type="datetime" />
+    <Property Name="Land" Type="nvarchar" MaxLength="25" />
+    <Property Name="Regie" Type="varchar" MaxLength="255" />
+    <Property Name="StatusNr" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LENr" Type="int" Nullable="false" />
+    <Property Name="Lektoratseinschaetzung" Type="varchar" MaxLength="25" />
+    <Property Name="Originaltitel" Type="nvarchar" MaxLength="100" />
+    <Property Name="Landsuche" Type="nvarchar" MaxLength="27" Nullable="false" />
+    <Property Name="Prioliste" Type="bit" Nullable="false" />
+    <Property Name="RegieMatchname" Type="varchar" MaxLength="255" />
+    <Property Name="aufgenommen_am" Type="datetime" Nullable="false" />
+    <Property Name="Sichtung" Type="bit" Nullable="false" />
+    <Property Name="Produktionsliste" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tbl_BlobD__Entry__2EA5EC27">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_BlobData" Type="Self.tbl_BlobData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_BlobData">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_BlobP__Entry__7E37BEF6">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_BlobProjekte" Type="Self.tbl_BlobProjekte" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_BlobProjekte">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Links__Entry__1F98B2C1">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_Links" Type="Self.tbl_Links" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_Links">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Perso__JobOn__0F624AF8">
+    <End Role="tbl_Jobs" Type="Self.tbl_Jobs" Multiplicity="1" />
+    <End Role="tbl_Personen" Type="Self.tbl_Personen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Jobs">
+        <PropertyRef Name="JobNr" />
+      </Principal>
+      <Dependent Role="tbl_Personen">
+        <PropertyRef Name="JobOne" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Perso__JobTh__114A936A">
+    <End Role="tbl_Jobs" Type="Self.tbl_Jobs" Multiplicity="1" />
+    <End Role="tbl_Personen" Type="Self.tbl_Personen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Jobs">
+        <PropertyRef Name="JobNr" />
+      </Principal>
+      <Dependent Role="tbl_Personen">
+        <PropertyRef Name="JobThree" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Perso__JobTw__10566F31">
+    <End Role="tbl_Jobs" Type="Self.tbl_Jobs" Multiplicity="1" />
+    <End Role="tbl_Personen" Type="Self.tbl_Personen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Jobs">
+        <PropertyRef Name="JobNr" />
+      </Principal>
+      <Dependent Role="tbl_Personen">
+        <PropertyRef Name="JobTwo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Auswe__60A75C0F">
+    <End Role="tbl_Auswertungsart" Type="Self.tbl_Auswertungsart" Multiplicity="1" />
+    <End Role="tbl_ProjektAuswertungsArtRel" Type="Self.tbl_ProjektAuswertungsArtRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Auswertungsart">
+        <PropertyRef Name="AuswertungsartNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektAuswertungsArtRel">
+        <PropertyRef Name="AuswertungsartNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__4E88ABD4">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ProjektPersonRel" Type="Self.tbl_ProjektPersonRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektPersonRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__534D60F1">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ProjektGenreRel" Type="Self.tbl_ProjektGenreRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektGenreRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__5FB337D6">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ProjektAuswertungsArtRel" Type="Self.tbl_ProjektAuswertungsArtRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektAuswertungsArtRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__6383C8BA">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ProjektLandRel" Type="Self.tbl_ProjektLandRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektLandRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Entry__6754599E">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ProjektFirmaRel" Type="Self.tbl_ProjektFirmaRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektFirmaRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Firma__68487DD7">
+    <End Role="tbl_Firmen" Type="Self.tbl_Firmen" Multiplicity="1" />
+    <End Role="tbl_ProjektFirmaRel" Type="Self.tbl_ProjektFirmaRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Firmen">
+        <PropertyRef Name="FirmaNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektFirmaRel">
+        <PropertyRef Name="FirmaNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Funkt__5070F446">
+    <End Role="tbl_Funktionen" Type="Self.tbl_Funktionen" Multiplicity="1" />
+    <End Role="tbl_ProjektPersonRel" Type="Self.tbl_ProjektPersonRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Funktionen">
+        <PropertyRef Name="FunktionNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektPersonRel">
+        <PropertyRef Name="FunktionNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Genre__5441852A">
+    <End Role="tbl_Genre" Type="Self.tbl_Genre" Multiplicity="1" />
+    <End Role="tbl_ProjektGenreRel" Type="Self.tbl_ProjektGenreRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Genre">
+        <PropertyRef Name="GenreNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektGenreRel">
+        <PropertyRef Name="GenreNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__LandN__6477ECF3">
+    <End Role="tbl_Land" Type="Self.tbl_Land" Multiplicity="1" />
+    <End Role="tbl_ProjektLandRel" Type="Self.tbl_ProjektLandRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Land">
+        <PropertyRef Name="LandNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektLandRel">
+        <PropertyRef Name="LandNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Perso__4F7CD00D">
+    <End Role="tbl_Personen" Type="Self.tbl_Personen" Multiplicity="1" />
+    <End Role="tbl_ProjektPersonRel" Type="Self.tbl_ProjektPersonRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Personen">
+        <PropertyRef Name="PersonNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektPersonRel">
+        <PropertyRef Name="PersonNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Theme__Entry__5CD6CB2B">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_Themen" Type="Self.tbl_Themen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_Themen">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TV_Ei__Entry__59063A47">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_TV_Einschaetzung" Type="Self.tbl_TV_Einschaetzung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_TV_Einschaetzung">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TV_Ei__Sende__59FA5E80">
+    <End Role="tbl_Sender" Type="Self.tbl_Sender" Multiplicity="1" />
+    <End Role="tbl_TV_Einschaetzung" Type="Self.tbl_TV_Einschaetzung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Sender">
+        <PropertyRef Name="SenderNr" />
+      </Principal>
+      <Dependent Role="tbl_TV_Einschaetzung">
+        <PropertyRef Name="SenderNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Waren__Entry__4865BE2A">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1" />
+    <End Role="tbl_WarenkorbProjektRel" Type="Self.tbl_WarenkorbProjektRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_WarenkorbProjektRel">
+        <PropertyRef Name="EntryNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Waren__Waren__477199F1">
+    <End Role="tbl_Warenkorb" Type="Self.tbl_Warenkorb" Multiplicity="1" />
+    <End Role="tbl_WarenkorbProjektRel" Type="Self.tbl_WarenkorbProjektRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Warenkorb">
+        <PropertyRef Name="WarenkorbNr" />
+      </Principal>
+      <Dependent Role="tbl_WarenkorbProjektRel">
+        <PropertyRef Name="WarenkorbNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Anbieter_Projekte">
+    <End Role="tbl_Anbieter" Type="Self.tbl_Anbieter" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Anbieter">
+        <PropertyRef Name="AnbieterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AnbieterNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bearbeiter_Projekte">
+    <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bearbeiter">
+        <PropertyRef Name="BearbeiterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BearbeiterNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Filmformate_Projekte">
+    <End Role="tbl_Filmformate" Type="Self.tbl_Filmformate" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Filmformate">
+        <PropertyRef Name="FormatNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="FormatNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lektoratseinschaetzung_Projekte">
+    <End Role="tbl_Lektoratseinschaetzung" Type="Self.tbl_Lektoratseinschaetzung" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Lektoratseinschaetzung">
+        <PropertyRef Name="LENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="LENr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projektart_Projekte">
+    <End Role="tbl_Projektart" Type="Self.tbl_Projektart" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projektart">
+        <PropertyRef Name="ProjektartNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="ProjektartNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Bearbeiter_tbl_Anbieter">
+    <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
+    <End Role="tbl_Anbieter" Type="Self.tbl_Anbieter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bearbeiter">
+        <PropertyRef Name="BearbeiterNr" />
+      </Principal>
+      <Dependent Role="tbl_Anbieter">
+        <PropertyRef Name="zuständig" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Verleih_Projekte">
+    <End Role="tbl_Verleih" Type="Self.tbl_Verleih" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Verleih">
+        <PropertyRef Name="VerleihNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="verkauft_an" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WE_Projekte_Angebot">
+    <End Role="tbl_WE" Type="Self.tbl_WE" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AngebotWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WE_Projekte_Asking">
+    <End Role="tbl_WE" Type="Self.tbl_WE" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AskingWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WE_Projekte_Backing">
+    <End Role="tbl_WE" Type="Self.tbl_WE" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BackingWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WE_Projekte_Budget">
+    <End Role="tbl_WE" Type="Self.tbl_WE" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BudgetWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WE_Projekte_Kaufpreis">
+    <End Role="tbl_WE" Type="Self.tbl_WE" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_WE">
+        <PropertyRef Name="WENr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="KaufpreisWE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_Volltext" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="such" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="EntryNo" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="sp_UpdateFestivalAkt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Warenkorbprojekte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="benutzer" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="AkquiseTestModelStoreContainer">
+    <EntitySet Name="tbl_Anbieter" EntityType="Self.tbl_Anbieter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Auswertungsart" EntityType="Self.tbl_Auswertungsart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BadCharacters" EntityType="Self.tbl_BadCharacters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Bearbeiter" EntityType="Self.tbl_Bearbeiter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BlobData" EntityType="Self.tbl_BlobData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BlobProjekte" EntityType="Self.tbl_BlobProjekte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Filmformate" EntityType="Self.tbl_Filmformate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Firmen" EntityType="Self.tbl_Firmen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Funktionen" EntityType="Self.tbl_Funktionen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Genre" EntityType="Self.tbl_Genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Jobs" EntityType="Self.tbl_Jobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Laender" EntityType="Self.tbl_Laender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Land" EntityType="Self.tbl_Land" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Lektoratseinschaetzung" EntityType="Self.tbl_Lektoratseinschaetzung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Links" EntityType="Self.tbl_Links" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Personen" EntityType="Self.tbl_Personen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Projektart" EntityType="Self.tbl_Projektart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjektAuswertungsArtRel" EntityType="Self.tbl_ProjektAuswertungsArtRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Projekte" EntityType="Self.tbl_Projekte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjektFirmaRel" EntityType="Self.tbl_ProjektFirmaRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjektGenreRel" EntityType="Self.tbl_ProjektGenreRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjektLandRel" EntityType="Self.tbl_ProjektLandRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjektPersonRel" EntityType="Self.tbl_ProjektPersonRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Rating" EntityType="Self.tbl_Rating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Regisseure" EntityType="Self.tbl_Regisseure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Sender" EntityType="Self.tbl_Sender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Status" EntityType="Self.tbl_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Themen" EntityType="Self.tbl_Themen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TV_Einschaetzung" EntityType="Self.tbl_TV_Einschaetzung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Verleih" EntityType="Self.tbl_Verleih" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Warenkorb" EntityType="Self.tbl_Warenkorb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_WarenkorbProjektRel" EntityType="Self.tbl_WarenkorbProjektRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_WE" EntityType="Self.tbl_WE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="qry_Firmamatch" EntityType="Self.qry_Firmamatch" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qry_Firmamatch].[EntryNo] AS [EntryNo], 
+    [qry_Firmamatch].[Matchname] AS [Matchname]
+    FROM [dbo].[qry_Firmamatch] AS [qry_Firmamatch]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="qry_Personmatch" EntityType="Self.qry_Personmatch" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qry_Personmatch].[EntryNo] AS [EntryNo], 
+    [qry_Personmatch].[Matchname] AS [Matchname]
+    FROM [dbo].[qry_Personmatch] AS [qry_Personmatch]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="qry_ProjekteASP" EntityType="Self.qry_ProjekteASP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qry_ProjekteASP].[ENTRY No] AS [ENTRY No], 
+    [qry_ProjekteASP].[TITEL/PROJEKT/FILM] AS [TITEL/PROJEKT/FILM], 
+    [qry_ProjekteASP].[DATUM/ANGEBOT] AS [DATUM/ANGEBOT], 
+    [qry_ProjekteASP].[aktualisiert] AS [aktualisiert], 
+    [qry_ProjekteASP].[Rating] AS [Rating], 
+    [qry_ProjekteASP].[StatusNr] AS [StatusNr], 
+    [qry_ProjekteASP].[Status] AS [Status], 
+    [qry_ProjekteASP].[Status2] AS [Status2], 
+    [qry_ProjekteASP].[xabgelehnt] AS [xabgelehnt], 
+    [qry_ProjekteASP].[Land] AS [Land], 
+    [qry_ProjekteASP].[AnbieterNr] AS [AnbieterNr], 
+    [qry_ProjekteASP].[Kontakt] AS [Kontakt], 
+    [qry_ProjekteASP].[Firma] AS [Firma], 
+    [qry_ProjekteASP].[Anb] AS [Anb], 
+    [qry_ProjekteASP].[AnbieterAF] AS [AnbieterAF], 
+    [qry_ProjekteASP].[zuständig] AS [zuständig], 
+    [qry_ProjekteASP].[Bearbeiter] AS [Bearbeiter], 
+    [qry_ProjekteASP].[RegisseurNr] AS [RegisseurNr], 
+    [qry_ProjekteASP].[Regie] AS [Regie], 
+    [qry_ProjekteASP].[Werke] AS [Werke], 
+    [qry_ProjekteASP].[Produzenten] AS [Produzenten], 
+    [qry_ProjekteASP].[Produktionsfirma] AS [Produktionsfirma], 
+    [qry_ProjekteASP].[Script/Buch] AS [Script/Buch], 
+    [qry_ProjekteASP].[Drehbeginn] AS [Drehbeginn], 
+    [qry_ProjekteASP].[Lieferbar] AS [Lieferbar], 
+    [qry_ProjekteASP].[US Release] AS [US Release], 
+    [qry_ProjekteASP].[Geschichte] AS [Geschichte], 
+    [qry_ProjekteASP].[Besetzung] AS [Besetzung], 
+    [qry_ProjekteASP].[Sonstiges] AS [Sonstiges], 
+    [qry_ProjekteASP].[Beurteilung] AS [Beurteilung], 
+    [qry_ProjekteASP].[Budget] AS [Budget], 
+    [qry_ProjekteASP].[Asking] AS [Asking], 
+    [qry_ProjekteASP].[Angebot] AS [Angebot], 
+    [qry_ProjekteASP].[Festival_akt] AS [Festival_akt], 
+    [qry_ProjekteASP].[Anfangsbuchstabe] AS [Anfangsbuchstabe]
+    FROM [dbo].[qry_ProjekteASP] AS [qry_ProjekteASP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="qry_ProjekteIndex" EntityType="Self.qry_ProjekteIndex" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qry_ProjekteIndex].[ENTRY No] AS [ENTRY No], 
+    [qry_ProjekteIndex].[Titel] AS [Titel], 
+    [qry_ProjekteIndex].[ProjektartNr] AS [ProjektartNr], 
+    [qry_ProjekteIndex].[Projektart] AS [Projektart], 
+    [qry_ProjekteIndex].[Rating] AS [Rating], 
+    [qry_ProjekteIndex].[BearbeiterNr] AS [BearbeiterNr], 
+    [qry_ProjekteIndex].[zuständig] AS [zuständig], 
+    [qry_ProjekteIndex].[Status2] AS [Status2], 
+    [qry_ProjekteIndex].[Festival_akt] AS [Festival_akt], 
+    [qry_ProjekteIndex].[AnbieterNr] AS [AnbieterNr], 
+    [qry_ProjekteIndex].[Anbieter] AS [Anbieter], 
+    [qry_ProjekteIndex].[AnbieterAF] AS [AnbieterAF], 
+    [qry_ProjekteIndex].[DATUM/ANGEBOT] AS [DATUM/ANGEBOT], 
+    [qry_ProjekteIndex].[Land] AS [Land], 
+    [qry_ProjekteIndex].[Regie] AS [Regie], 
+    [qry_ProjekteIndex].[StatusNr] AS [StatusNr], 
+    [qry_ProjekteIndex].[Status] AS [Status], 
+    [qry_ProjekteIndex].[LENr] AS [LENr], 
+    [qry_ProjekteIndex].[Lektoratseinschaetzung] AS [Lektoratseinschaetzung], 
+    [qry_ProjekteIndex].[Originaltitel] AS [Originaltitel], 
+    [qry_ProjekteIndex].[Landsuche] AS [Landsuche], 
+    [qry_ProjekteIndex].[Prioliste] AS [Prioliste], 
+    [qry_ProjekteIndex].[RegieMatchname] AS [RegieMatchname], 
+    [qry_ProjekteIndex].[aufgenommen_am] AS [aufgenommen_am], 
+    [qry_ProjekteIndex].[Sichtung] AS [Sichtung], 
+    [qry_ProjekteIndex].[Produktionsliste] AS [Produktionsliste]
+    FROM [dbo].[qry_ProjekteIndex] AS [qry_ProjekteIndex]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__tbl_BlobD__Entry__2EA5EC27" Association="Self.FK__tbl_BlobD__Entry__2EA5EC27">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_BlobData" EntitySet="tbl_BlobData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_BlobP__Entry__7E37BEF6" Association="Self.FK__tbl_BlobP__Entry__7E37BEF6">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_BlobProjekte" EntitySet="tbl_BlobProjekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Links__Entry__1F98B2C1" Association="Self.FK__tbl_Links__Entry__1F98B2C1">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_Links" EntitySet="tbl_Links" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Perso__JobOn__0F624AF8" Association="Self.FK__tbl_Perso__JobOn__0F624AF8">
+      <End Role="tbl_Jobs" EntitySet="tbl_Jobs" />
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Perso__JobTh__114A936A" Association="Self.FK__tbl_Perso__JobTh__114A936A">
+      <End Role="tbl_Jobs" EntitySet="tbl_Jobs" />
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Perso__JobTw__10566F31" Association="Self.FK__tbl_Perso__JobTw__10566F31">
+      <End Role="tbl_Jobs" EntitySet="tbl_Jobs" />
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Auswe__60A75C0F" Association="Self.FK__tbl_Proje__Auswe__60A75C0F">
+      <End Role="tbl_Auswertungsart" EntitySet="tbl_Auswertungsart" />
+      <End Role="tbl_ProjektAuswertungsArtRel" EntitySet="tbl_ProjektAuswertungsArtRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__4E88ABD4" Association="Self.FK__tbl_Proje__Entry__4E88ABD4">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektPersonRel" EntitySet="tbl_ProjektPersonRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__534D60F1" Association="Self.FK__tbl_Proje__Entry__534D60F1">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektGenreRel" EntitySet="tbl_ProjektGenreRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__5FB337D6" Association="Self.FK__tbl_Proje__Entry__5FB337D6">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektAuswertungsArtRel" EntitySet="tbl_ProjektAuswertungsArtRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__6383C8BA" Association="Self.FK__tbl_Proje__Entry__6383C8BA">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektLandRel" EntitySet="tbl_ProjektLandRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Entry__6754599E" Association="Self.FK__tbl_Proje__Entry__6754599E">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektFirmaRel" EntitySet="tbl_ProjektFirmaRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Firma__68487DD7" Association="Self.FK__tbl_Proje__Firma__68487DD7">
+      <End Role="tbl_Firmen" EntitySet="tbl_Firmen" />
+      <End Role="tbl_ProjektFirmaRel" EntitySet="tbl_ProjektFirmaRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Funkt__5070F446" Association="Self.FK__tbl_Proje__Funkt__5070F446">
+      <End Role="tbl_Funktionen" EntitySet="tbl_Funktionen" />
+      <End Role="tbl_ProjektPersonRel" EntitySet="tbl_ProjektPersonRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Genre__5441852A" Association="Self.FK__tbl_Proje__Genre__5441852A">
+      <End Role="tbl_Genre" EntitySet="tbl_Genre" />
+      <End Role="tbl_ProjektGenreRel" EntitySet="tbl_ProjektGenreRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__LandN__6477ECF3" Association="Self.FK__tbl_Proje__LandN__6477ECF3">
+      <End Role="tbl_Land" EntitySet="tbl_Land" />
+      <End Role="tbl_ProjektLandRel" EntitySet="tbl_ProjektLandRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Perso__4F7CD00D" Association="Self.FK__tbl_Proje__Perso__4F7CD00D">
+      <End Role="tbl_Personen" EntitySet="tbl_Personen" />
+      <End Role="tbl_ProjektPersonRel" EntitySet="tbl_ProjektPersonRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Theme__Entry__5CD6CB2B" Association="Self.FK__tbl_Theme__Entry__5CD6CB2B">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_Themen" EntitySet="tbl_Themen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TV_Ei__Entry__59063A47" Association="Self.FK__tbl_TV_Ei__Entry__59063A47">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_TV_Einschaetzung" EntitySet="tbl_TV_Einschaetzung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TV_Ei__Sende__59FA5E80" Association="Self.FK__tbl_TV_Ei__Sende__59FA5E80">
+      <End Role="tbl_Sender" EntitySet="tbl_Sender" />
+      <End Role="tbl_TV_Einschaetzung" EntitySet="tbl_TV_Einschaetzung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Waren__Entry__4865BE2A" Association="Self.FK__tbl_Waren__Entry__4865BE2A">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_WarenkorbProjektRel" EntitySet="tbl_WarenkorbProjektRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Waren__Waren__477199F1" Association="Self.FK__tbl_Waren__Waren__477199F1">
+      <End Role="tbl_Warenkorb" EntitySet="tbl_Warenkorb" />
+      <End Role="tbl_WarenkorbProjektRel" EntitySet="tbl_WarenkorbProjektRel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Anbieter_Projekte" Association="Self.FK_Anbieter_Projekte">
+      <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bearbeiter_Projekte" Association="Self.FK_Bearbeiter_Projekte">
+      <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Filmformate_Projekte" Association="Self.FK_Filmformate_Projekte">
+      <End Role="tbl_Filmformate" EntitySet="tbl_Filmformate" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lektoratseinschaetzung_Projekte" Association="Self.FK_Lektoratseinschaetzung_Projekte">
+      <End Role="tbl_Lektoratseinschaetzung" EntitySet="tbl_Lektoratseinschaetzung" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projektart_Projekte" Association="Self.FK_Projektart_Projekte">
+      <End Role="tbl_Projektart" EntitySet="tbl_Projektart" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Bearbeiter_tbl_Anbieter" Association="Self.FK_tbl_Bearbeiter_tbl_Anbieter">
+      <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+      <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Verleih_Projekte" Association="Self.FK_Verleih_Projekte">
+      <End Role="tbl_Verleih" EntitySet="tbl_Verleih" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WE_Projekte_Angebot" Association="Self.FK_WE_Projekte_Angebot">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WE_Projekte_Asking" Association="Self.FK_WE_Projekte_Asking">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WE_Projekte_Backing" Association="Self.FK_WE_Projekte_Backing">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WE_Projekte_Budget" Association="Self.FK_WE_Projekte_Budget">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WE_Projekte_Kaufpreis" Association="Self.FK_WE_Projekte_Kaufpreis">
+      <End Role="tbl_WE" EntitySet="tbl_WE" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
