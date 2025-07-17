@@ -260,6 +260,8 @@
     <EntitySetMapping Name="tbl_Projekte">
       <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Projekte">
         <MappingFragment StoreEntitySet="tbl_Projekte">
+          <ScalarProperty Name="AnbieterNr2" ColumnName="AnbieterNr2" />
+          <ScalarProperty Name="BearbeiterNr2" ColumnName="BearbeiterNr2" />
           <ScalarProperty Name="FormatNr" ColumnName="FormatNr" />
           <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
           <ScalarProperty Name="Erinnerung_an" ColumnName="Erinnerung_an" />
@@ -467,5 +469,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="tbl_ProjektBearbeiterRel" TypeName="AkquiseTestModel.tbl_ProjektBearbeiterRel" StoreEntitySet="tbl_ProjektBearbeiterRel">
+      <EndProperty Name="tbl_Projekte">
+        <ScalarProperty Name="ENTRY_No" ColumnName="EntryNo" />
+      </EndProperty>
+      <EndProperty Name="tbl_Bearbeiter">
+        <ScalarProperty Name="BearbeiterNr" ColumnName="BearbeiterNr" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

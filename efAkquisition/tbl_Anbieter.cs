@@ -18,6 +18,7 @@ namespace efAkquisition
         public tbl_Anbieter()
         {
             this.tbl_Projekte = new HashSet<tbl_Projekte>();
+            this.tbl_Projekte1 = new HashSet<tbl_Projekte>();
         }
     
         public int AnbieterNr { get; set; }
@@ -29,5 +30,7 @@ namespace efAkquisition
         public virtual tbl_Bearbeiter tbl_Bearbeiter { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Projekte> tbl_Projekte { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Projekte> tbl_Projekte1 { get; set; }
     }
 }

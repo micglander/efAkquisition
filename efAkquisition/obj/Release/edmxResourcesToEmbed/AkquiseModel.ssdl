@@ -153,6 +153,14 @@
     <Property Name="AuswertungsartNr" Type="int" Nullable="false" />
     <Property Name="Potential" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbl_ProjektBearbeiterRel">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+      <PropertyRef Name="BearbeiterNr" />
+    </Key>
+    <Property Name="EntryNo" Type="int" Nullable="false" />
+    <Property Name="BearbeiterNr" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbl_Projekte">
     <Key>
       <PropertyRef Name="ENTRY No" />
@@ -748,6 +756,18 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Bearbeiter_ProjektBearbeiterRel">
+    <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
+    <End Role="tbl_ProjektBearbeiterRel" Type="Self.tbl_ProjektBearbeiterRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bearbeiter">
+        <PropertyRef Name="BearbeiterNr" />
+      </Principal>
+      <Dependent Role="tbl_ProjektBearbeiterRel">
+        <PropertyRef Name="BearbeiterNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Bearbeiter_Projekte">
     <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
     <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
@@ -793,6 +813,20 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       </Principal>
       <Dependent Role="tbl_Projekte">
         <PropertyRef Name="ProjektartNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projekte_ProjektBearbeiterRel">
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ProjektBearbeiterRel" Type="Self.tbl_ProjektBearbeiterRel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Projekte">
+        <PropertyRef Name="ENTRY No" />
+      </Principal>
+      <Dependent Role="tbl_ProjektBearbeiterRel">
+        <PropertyRef Name="EntryNo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -913,6 +947,7 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
     <EntitySet Name="tbl_Personen" EntityType="Self.tbl_Personen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Projektart" EntityType="Self.tbl_Projektart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ProjektAuswertungsArtRel" EntityType="Self.tbl_ProjektAuswertungsArtRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjektBearbeiterRel" EntityType="Self.tbl_ProjektBearbeiterRel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Projekte" EntityType="Self.tbl_Projekte" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ProjektFirmaRel" EntityType="Self.tbl_ProjektFirmaRel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ProjektGenreRel" EntityType="Self.tbl_ProjektGenreRel" Schema="dbo" store:Type="Tables" />
@@ -1101,6 +1136,10 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
       <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
     </AssociationSet>
+    <AssociationSet Name="FK_Bearbeiter_ProjektBearbeiterRel" Association="Self.FK_Bearbeiter_ProjektBearbeiterRel">
+      <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+      <End Role="tbl_ProjektBearbeiterRel" EntitySet="tbl_ProjektBearbeiterRel" />
+    </AssociationSet>
     <AssociationSet Name="FK_Bearbeiter_Projekte" Association="Self.FK_Bearbeiter_Projekte">
       <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
       <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
@@ -1116,6 +1155,10 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
     <AssociationSet Name="FK_Projektart_Projekte" Association="Self.FK_Projektart_Projekte">
       <End Role="tbl_Projektart" EntitySet="tbl_Projektart" />
       <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projekte_ProjektBearbeiterRel" Association="Self.FK_Projekte_ProjektBearbeiterRel">
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+      <End Role="tbl_ProjektBearbeiterRel" EntitySet="tbl_ProjektBearbeiterRel" />
     </AssociationSet>
     <AssociationSet Name="FK_tbl_Bearbeiter_tbl_Anbieter" Association="Self.FK_tbl_Bearbeiter_tbl_Anbieter">
       <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />

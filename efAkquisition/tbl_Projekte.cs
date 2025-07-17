@@ -29,6 +29,7 @@ namespace efAkquisition
             this.tbl_Links = new HashSet<tbl_Links>();
             this.tbl_BlobData = new HashSet<tbl_BlobData>();
             this.tbl_WarenkorbProjektRel = new HashSet<tbl_WarenkorbProjektRel>();
+            this.tbl_Bearbeiter1 = new HashSet<tbl_Bearbeiter>();
         }
     
         public int ENTRY_No { get; set; }
@@ -101,6 +102,8 @@ namespace efAkquisition
         public string Erinnerung_an { get; set; }
         public string Synopsis { get; set; }
         public int FormatNr { get; set; }
+        public int BearbeiterNr2 { get; set; }
+        public int AnbieterNr2 { get; set; }
     
         public virtual tbl_Anbieter tbl_Anbieter { get; set; }
         public virtual tbl_Bearbeiter tbl_Bearbeiter { get; set; }
@@ -137,5 +140,9 @@ namespace efAkquisition
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_WarenkorbProjektRel> tbl_WarenkorbProjektRel { get; set; }
         public virtual tbl_Filmformate tbl_Filmformate { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Bearbeiter> tbl_Bearbeiter1 { get; set; }
+        public virtual tbl_Anbieter tbl_Anbieter1 { get; set; }
+        public virtual tbl_Bearbeiter tbl_Bearbeiter11 { get; set; }
     }
 }

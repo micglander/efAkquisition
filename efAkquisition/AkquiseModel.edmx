@@ -158,6 +158,14 @@
           <Property Name="AuswertungsartNr" Type="int" Nullable="false" />
           <Property Name="Potential" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="tbl_ProjektBearbeiterRel">
+          <Key>
+            <PropertyRef Name="EntryNo" />
+            <PropertyRef Name="BearbeiterNr" />
+          </Key>
+          <Property Name="EntryNo" Type="int" Nullable="false" />
+          <Property Name="BearbeiterNr" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_Projekte">
           <Key>
             <PropertyRef Name="ENTRY No" />
@@ -232,6 +240,8 @@
           <Property Name="Erinnerung_an" Type="varchar" MaxLength="100" />
           <Property Name="Synopsis" Type="text" />
           <Property Name="FormatNr" Type="int" Nullable="false" />
+          <Property Name="BearbeiterNr2" Type="int" Nullable="false" />
+          <Property Name="AnbieterNr2" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_ProjektFirmaRel">
           <Key>
@@ -762,6 +772,30 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Anbieter_Projekte2">
+          <End Role="tbl_Anbieter" Type="Self.tbl_Anbieter" Multiplicity="1" />
+          <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Anbieter">
+              <PropertyRef Name="AnbieterNr" />
+            </Principal>
+            <Dependent Role="tbl_Projekte">
+              <PropertyRef Name="AnbieterNr2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bearbeiter_ProjektBearbeiterRel">
+          <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
+          <End Role="tbl_ProjektBearbeiterRel" Type="Self.tbl_ProjektBearbeiterRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bearbeiter">
+              <PropertyRef Name="BearbeiterNr" />
+            </Principal>
+            <Dependent Role="tbl_ProjektBearbeiterRel">
+              <PropertyRef Name="BearbeiterNr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Bearbeiter_Projekte">
           <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
           <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
@@ -771,6 +805,18 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             </Principal>
             <Dependent Role="tbl_Projekte">
               <PropertyRef Name="BearbeiterNr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bearbeiter_Projekte2">
+          <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
+          <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bearbeiter">
+              <PropertyRef Name="BearbeiterNr" />
+            </Principal>
+            <Dependent Role="tbl_Projekte">
+              <PropertyRef Name="BearbeiterNr2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -807,6 +853,20 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             </Principal>
             <Dependent Role="tbl_Projekte">
               <PropertyRef Name="ProjektartNr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projekte_ProjektBearbeiterRel">
+          <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_ProjektBearbeiterRel" Type="Self.tbl_ProjektBearbeiterRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Projekte">
+              <PropertyRef Name="ENTRY No" />
+            </Principal>
+            <Dependent Role="tbl_ProjektBearbeiterRel">
+              <PropertyRef Name="EntryNo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -927,6 +987,7 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <EntitySet Name="tbl_Personen" EntityType="Self.tbl_Personen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Projektart" EntityType="Self.tbl_Projektart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ProjektAuswertungsArtRel" EntityType="Self.tbl_ProjektAuswertungsArtRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ProjektBearbeiterRel" EntityType="Self.tbl_ProjektBearbeiterRel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Projekte" EntityType="Self.tbl_Projekte" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ProjektFirmaRel" EntityType="Self.tbl_ProjektFirmaRel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ProjektGenreRel" EntityType="Self.tbl_ProjektGenreRel" Schema="dbo" store:Type="Tables" />
@@ -1115,7 +1176,19 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
             <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
           </AssociationSet>
+          <AssociationSet Name="FK_Anbieter_Projekte2" Association="Self.FK_Anbieter_Projekte2">
+            <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+            <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bearbeiter_ProjektBearbeiterRel" Association="Self.FK_Bearbeiter_ProjektBearbeiterRel">
+            <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+            <End Role="tbl_ProjektBearbeiterRel" EntitySet="tbl_ProjektBearbeiterRel" />
+          </AssociationSet>
           <AssociationSet Name="FK_Bearbeiter_Projekte" Association="Self.FK_Bearbeiter_Projekte">
+            <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+            <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bearbeiter_Projekte2" Association="Self.FK_Bearbeiter_Projekte2">
             <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
             <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
           </AssociationSet>
@@ -1130,6 +1203,10 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <AssociationSet Name="FK_Projektart_Projekte" Association="Self.FK_Projektart_Projekte">
             <End Role="tbl_Projektart" EntitySet="tbl_Projektart" />
             <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projekte_ProjektBearbeiterRel" Association="Self.FK_Projekte_ProjektBearbeiterRel">
+            <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+            <End Role="tbl_ProjektBearbeiterRel" EntitySet="tbl_ProjektBearbeiterRel" />
           </AssociationSet>
           <AssociationSet Name="FK_tbl_Bearbeiter_tbl_Anbieter" Association="Self.FK_tbl_Bearbeiter_tbl_Anbieter">
             <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
@@ -1385,6 +1462,18 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             <End Role="tbl_Filmformate" EntitySet="tbl_Filmformate" />
             <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
           </AssociationSet>
+          <AssociationSet Name="tbl_ProjektBearbeiterRel" Association="AkquiseTestModel.tbl_ProjektBearbeiterRel">
+            <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+            <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Anbieter_Projekte2" Association="AkquiseTestModel.FK_Anbieter_Projekte2">
+            <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+            <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bearbeiter_Projekte2" Association="AkquiseTestModel.FK_Bearbeiter_Projekte2">
+            <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+            <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="tbl_Anbieter">
           <Key>
@@ -1397,6 +1486,7 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <Property Name="AnbieterAF" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="tbl_Bearbeiter" Relationship="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter" FromRole="tbl_Anbieter" ToRole="tbl_Bearbeiter" />
           <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK_tbl_Anbieter_tbl_Projekte_AnbieterNr" FromRole="tbl_Anbieter" ToRole="tbl_Projekte" />
+          <NavigationProperty Name="tbl_Projekte1" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Anbieter" ToRole="tbl_Projekte" />
         </EntityType>
         <EntityType Name="tbl_Laender">
           <Key>
@@ -1413,6 +1503,8 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <Property Name="Bearbeiter" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="tbl_Anbieter" Relationship="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter" FromRole="tbl_Bearbeiter" ToRole="tbl_Anbieter" />
           <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Bearb__7F2BE32F" FromRole="tbl_Bearbeiter" ToRole="tbl_Projekte" />
+          <NavigationProperty Name="tbl_Projekte1" Relationship="AkquiseTestModel.tbl_ProjektBearbeiterRel" FromRole="tbl_Bearbeiter" ToRole="tbl_Projekte" />
+          <NavigationProperty Name="tbl_Projekte11" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Bearbeiter" ToRole="tbl_Projekte" />
         </EntityType>
         <Association Name="FK_tbl_Bearbeiter_tbl_Anbieter">
           <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="1" />
@@ -1813,6 +1905,11 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="FormatNr" Type="Int32" Nullable="false" DefaultValue="1" />
           <NavigationProperty Name="tbl_Filmformate" Relationship="AkquiseTestModel.FK_Filmformate_Projekte" FromRole="tbl_Projekte" ToRole="tbl_Filmformate" />
+          <NavigationProperty Name="tbl_Bearbeiter1" Relationship="AkquiseTestModel.tbl_ProjektBearbeiterRel" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
+          <Property Name="BearbeiterNr2" Type="Int32" Nullable="false" />
+          <Property Name="AnbieterNr2" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_Anbieter1" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Anbieter" />
+          <NavigationProperty Name="tbl_Bearbeiter11" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
         </EntityType>
         <Association Name="FK_tbl_Anbieter_tbl_Projekte_AnbieterNr">
           <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="1" />
@@ -2350,6 +2447,34 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="tbl_ProjektBearbeiterRel">
+          <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="*" />
+          <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Anbieter_Projekte2">
+          <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="1" />
+          <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Anbieter">
+              <PropertyRef Name="AnbieterNr" />
+            </Principal>
+            <Dependent Role="tbl_Projekte">
+              <PropertyRef Name="AnbieterNr2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bearbeiter_Projekte2">
+          <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="1" />
+          <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bearbeiter">
+              <PropertyRef Name="BearbeiterNr" />
+            </Principal>
+            <Dependent Role="tbl_Projekte">
+              <PropertyRef Name="BearbeiterNr2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2615,6 +2740,8 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <EntitySetMapping Name="tbl_Projekte">
             <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Projekte">
               <MappingFragment StoreEntitySet="tbl_Projekte">
+                <ScalarProperty Name="AnbieterNr2" ColumnName="AnbieterNr2" />
+                <ScalarProperty Name="BearbeiterNr2" ColumnName="BearbeiterNr2" />
                 <ScalarProperty Name="FormatNr" ColumnName="FormatNr" />
                 <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
                 <ScalarProperty Name="Erinnerung_an" ColumnName="Erinnerung_an" />
@@ -2823,6 +2950,14 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="tbl_ProjektBearbeiterRel" TypeName="AkquiseTestModel.tbl_ProjektBearbeiterRel" StoreEntitySet="tbl_ProjektBearbeiterRel">
+            <EndProperty Name="tbl_Projekte">
+              <ScalarProperty Name="ENTRY_No" ColumnName="EntryNo" />
+            </EndProperty>
+            <EndProperty Name="tbl_Bearbeiter">
+              <ScalarProperty Name="BearbeiterNr" ColumnName="BearbeiterNr" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

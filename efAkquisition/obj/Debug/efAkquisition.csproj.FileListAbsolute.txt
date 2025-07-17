@@ -49,3 +49,15 @@ E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.p
 E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.AssemblyReference.cache
 E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.CoreCompileInputs.cache
 E:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.CopyComplete
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll.config
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\efAkquisition.dll
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\efAkquisition.pdb
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.dll
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.dll
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.xml
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Debug\EntityFramework.SqlServer.xml
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.AssemblyReference.cache
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.csproj.CoreCompileInputs.cache
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquis.10B9298F.Up2Date
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.dll
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Debug\efAkquisition.pdb

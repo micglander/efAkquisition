@@ -10,6 +10,23 @@ namespace efAkquisition
     [MetadataType(typeof(ProjekteMetadata))]
     public partial class tbl_Projekte
     {
+        // Version 3.0
+        // zuständig
+        public List<int> BearbeiterIds {
+            get { return this.tbl_Bearbeiter1.Select(x => x.BearbeiterNr).ToList(); }
+         }
+
+        public IEnumerable<tbl_Bearbeiter> AllBearbeiter 
+        {
+            get
+            {
+                AkquiseEntities context = new AkquiseEntities();
+                return context.tbl_Bearbeiter.ToList(); 
+            }
+        }
+        
+
+
         public Nullable<int>[] Age_Rating_List
         {
             get

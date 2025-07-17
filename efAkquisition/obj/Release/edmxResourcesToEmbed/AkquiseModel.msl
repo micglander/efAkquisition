@@ -467,5 +467,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="tbl_ProjektBearbeiterRel" TypeName="AkquiseTestModel.tbl_ProjektBearbeiterRel" StoreEntitySet="tbl_ProjektBearbeiterRel">
+      <EndProperty Name="tbl_Projekte">
+        <ScalarProperty Name="ENTRY_No" ColumnName="EntryNo" />
+      </EndProperty>
+      <EndProperty Name="tbl_Bearbeiter">
+        <ScalarProperty Name="BearbeiterNr" ColumnName="BearbeiterNr" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
