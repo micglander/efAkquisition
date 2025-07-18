@@ -40,5 +40,8 @@ namespace efAkquisition
         public System.DateTime aufgenommen_am { get; set; }
         public bool Sichtung { get; set; }
         public bool Produktionsliste { get; set; }
+        public int BearbeiterNr2 { get; set; }
+        public int AnbieterNr2 { get; set; }
+        public string Anbieter2 { get; set; }
     }
 }

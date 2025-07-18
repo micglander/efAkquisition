@@ -664,11 +664,10 @@
     <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="FormatNr" Type="Int32" Nullable="false" DefaultValue="1" />
     <NavigationProperty Name="tbl_Filmformate" Relationship="AkquiseTestModel.FK_Filmformate_Projekte" FromRole="tbl_Projekte" ToRole="tbl_Filmformate" />
-    <NavigationProperty Name="tbl_Bearbeiter1" Relationship="AkquiseTestModel.tbl_ProjektBearbeiterRel" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
     <Property Name="BearbeiterNr2" Type="Int32" Nullable="false" />
     <Property Name="AnbieterNr2" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="tbl_Anbieter1" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Anbieter" />
-    <NavigationProperty Name="tbl_Bearbeiter11" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
+    <NavigationProperty Name="tbl_Anbieter2" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Anbieter" />
+    <NavigationProperty Name="tbl_Bearbeiter2" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
   </EntityType>
   <Association Name="FK_tbl_Anbieter_tbl_Projekte_AnbieterNr">
     <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="1" />
@@ -1050,6 +1049,8 @@
       <PropertyRef Name="Prioliste" />
       <PropertyRef Name="Sichtung" />
       <PropertyRef Name="Produktionsliste" />
+      <PropertyRef Name="BearbeiterNr2" />
+      <PropertyRef Name="AnbieterNr2" />
     </Key>
     <Property Name="ENTRY_No" Type="Int32" Nullable="false" />
     <Property Name="Titel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -1077,6 +1078,9 @@
     <Property Name="aufgenommen_am" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="Sichtung" Type="Boolean" Nullable="false" />
     <Property Name="Produktionsliste" Type="Boolean" Nullable="false" />
+    <Property Name="BearbeiterNr2" Type="Int32" Nullable="false" />
+    <Property Name="AnbieterNr2" Type="Int32" Nullable="false" />
+    <Property Name="Anbieter2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tbl_BlobData">
     <Key>

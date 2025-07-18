@@ -448,6 +448,8 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             
             <PropertyRef Name="Sichtung" />
             <PropertyRef Name="Produktionsliste" />
+            <PropertyRef Name="BearbeiterNr2" />
+            <PropertyRef Name="AnbieterNr2" />
           </Key>
           <Property Name="ENTRY No" Type="int" Nullable="false" />
           <Property Name="Titel" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -475,6 +477,9 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <Property Name="aufgenommen_am" Type="datetime" Nullable="false" />
           <Property Name="Sichtung" Type="bit" Nullable="false" />
           <Property Name="Produktionsliste" Type="bit" Nullable="false" />
+          <Property Name="BearbeiterNr2" Type="int" Nullable="false" />
+          <Property Name="AnbieterNr2" Type="int" Nullable="false" />
+          <Property Name="Anbieter2" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <Association Name="FK__tbl_BlobD__Entry__2EA5EC27">
           <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
@@ -1081,7 +1086,10 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
     [qry_ProjekteIndex].[RegieMatchname] AS [RegieMatchname], 
     [qry_ProjekteIndex].[aufgenommen_am] AS [aufgenommen_am], 
     [qry_ProjekteIndex].[Sichtung] AS [Sichtung], 
-    [qry_ProjekteIndex].[Produktionsliste] AS [Produktionsliste]
+    [qry_ProjekteIndex].[Produktionsliste] AS [Produktionsliste], 
+    [qry_ProjekteIndex].[BearbeiterNr2] AS [BearbeiterNr2], 
+    [qry_ProjekteIndex].[AnbieterNr2] AS [AnbieterNr2], 
+    [qry_ProjekteIndex].[Anbieter2] AS [Anbieter2]
     FROM [dbo].[qry_ProjekteIndex] AS [qry_ProjekteIndex]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__tbl_BlobD__Entry__2EA5EC27" Association="Self.FK__tbl_BlobD__Entry__2EA5EC27">
@@ -1905,11 +1913,10 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="FormatNr" Type="Int32" Nullable="false" DefaultValue="1" />
           <NavigationProperty Name="tbl_Filmformate" Relationship="AkquiseTestModel.FK_Filmformate_Projekte" FromRole="tbl_Projekte" ToRole="tbl_Filmformate" />
-          <NavigationProperty Name="tbl_Bearbeiter1" Relationship="AkquiseTestModel.tbl_ProjektBearbeiterRel" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
           <Property Name="BearbeiterNr2" Type="Int32" Nullable="false" />
           <Property Name="AnbieterNr2" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tbl_Anbieter1" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Anbieter" />
-          <NavigationProperty Name="tbl_Bearbeiter11" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
+          <NavigationProperty Name="tbl_Anbieter2" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Anbieter" />
+          <NavigationProperty Name="tbl_Bearbeiter2" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
         </EntityType>
         <Association Name="FK_tbl_Anbieter_tbl_Projekte_AnbieterNr">
           <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="1" />
@@ -2291,6 +2298,8 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
             <PropertyRef Name="Prioliste" />
             <PropertyRef Name="Sichtung" />
             <PropertyRef Name="Produktionsliste" />
+            <PropertyRef Name="BearbeiterNr2" />
+            <PropertyRef Name="AnbieterNr2" />
           </Key>
           <Property Name="ENTRY_No" Type="Int32" Nullable="false" />
           <Property Name="Titel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -2318,6 +2327,9 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <Property Name="aufgenommen_am" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Sichtung" Type="Boolean" Nullable="false" />
           <Property Name="Produktionsliste" Type="Boolean" Nullable="false" />
+          <Property Name="BearbeiterNr2" Type="Int32" Nullable="false" />
+          <Property Name="AnbieterNr2" Type="Int32" Nullable="false" />
+          <Property Name="Anbieter2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tbl_BlobData">
           <Key>
@@ -2864,6 +2876,9 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
           <EntitySetMapping Name="qry_ProjekteIndex">
             <EntityTypeMapping TypeName="AkquiseTestModel.qry_ProjekteIndex">
               <MappingFragment StoreEntitySet="qry_ProjekteIndex">
+                <ScalarProperty Name="Anbieter2" ColumnName="Anbieter2" />
+                <ScalarProperty Name="AnbieterNr2" ColumnName="AnbieterNr2" />
+                <ScalarProperty Name="BearbeiterNr2" ColumnName="BearbeiterNr2" />
                 <ScalarProperty Name="Produktionsliste" ColumnName="Produktionsliste" />
                 <ScalarProperty Name="Sichtung" ColumnName="Sichtung" />
                 <ScalarProperty Name="aufgenommen_am" ColumnName="aufgenommen_am" />

@@ -434,6 +434,8 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       <PropertyRef Name="Prioliste" />
       <PropertyRef Name="Sichtung" />
       <PropertyRef Name="Produktionsliste" />
+      <PropertyRef Name="BearbeiterNr2" />
+      <PropertyRef Name="AnbieterNr2" />
     </Key>
     <Property Name="ENTRY No" Type="int" Nullable="false" />
     <Property Name="Titel" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -461,6 +463,9 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
     <Property Name="aufgenommen_am" Type="datetime" Nullable="false" />
     <Property Name="Sichtung" Type="bit" Nullable="false" />
     <Property Name="Produktionsliste" Type="bit" Nullable="false" />
+    <Property Name="BearbeiterNr2" Type="int" Nullable="false" />
+    <Property Name="AnbieterNr2" Type="int" Nullable="false" />
+    <Property Name="Anbieter2" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <Association Name="FK__tbl_BlobD__Entry__2EA5EC27">
     <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
@@ -1067,7 +1072,10 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
     [qry_ProjekteIndex].[RegieMatchname] AS [RegieMatchname], 
     [qry_ProjekteIndex].[aufgenommen_am] AS [aufgenommen_am], 
     [qry_ProjekteIndex].[Sichtung] AS [Sichtung], 
-    [qry_ProjekteIndex].[Produktionsliste] AS [Produktionsliste]
+    [qry_ProjekteIndex].[Produktionsliste] AS [Produktionsliste], 
+    [qry_ProjekteIndex].[BearbeiterNr2] AS [BearbeiterNr2], 
+    [qry_ProjekteIndex].[AnbieterNr2] AS [AnbieterNr2], 
+    [qry_ProjekteIndex].[Anbieter2] AS [Anbieter2]
     FROM [dbo].[qry_ProjekteIndex] AS [qry_ProjekteIndex]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__tbl_BlobD__Entry__2EA5EC27" Association="Self.FK__tbl_BlobD__Entry__2EA5EC27">

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace efAkquisition
 {
@@ -11,10 +12,45 @@ namespace efAkquisition
     public partial class tbl_Projekte
     {
         // Version 3.0
+        public string ConcatBearbeiter
+        {
+            get { return myConcat(this.tbl_Bearbeiter.Bearbeiter, this.tbl_Bearbeiter2.Bearbeiter, " / "); }
+        }
+
+        public string ConcatAnbieter
+        {
+            get { return myConcat(this.tbl_Anbieter.Kürzel, this.tbl_Anbieter2.Kürzel, " / "); }
+        }
+
+        /// <summary>
+        /// Spezielle Konkatenierung, - entspricht einem Null Eintrag
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="trenner"></param>
+        /// <returns></returns>
+        private string myConcat(string x, string y, string trenner)
+        {
+            if (!x.Trim().Equals("-")  && !y.Trim().Equals("-"))
+            {
+                return x + trenner + y;
+            }
+            else if (y.Trim().Equals("-"))
+            {
+                return x;
+            }
+            else
+            {
+                return y;
+            }
+        }
+
+
+
         // zuständig
-        public List<int> BearbeiterIds {
-            get { return this.tbl_Bearbeiter1.Select(x => x.BearbeiterNr).ToList(); }
-         }
+        //public List<int> BearbeiterIds {
+        //    get { return this.tbl_Bearbeiter1.Select(x => x.BearbeiterNr).ToList(); }
+        // }
 
         public IEnumerable<tbl_Bearbeiter> AllBearbeiter 
         {
