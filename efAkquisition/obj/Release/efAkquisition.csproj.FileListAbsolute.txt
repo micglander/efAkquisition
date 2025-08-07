@@ -49,6 +49,6 @@ D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Release\EntityFramewo
 D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\bin\Release\EntityFramework.SqlServer.xml
 D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Release\efAkquisition.csproj.AssemblyReference.cache
 D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Release\efAkquisition.csproj.CoreCompileInputs.cache
-D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Release\efAkquis.10B9298F.Up2Date
 D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Release\efAkquisition.dll
 D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Release\efAkquisition.pdb
+D:\dsym\glander\DotNet\ASP\efAkquisition\efAkquisition\obj\Release\efAkquisition.csproj.CopyComplete

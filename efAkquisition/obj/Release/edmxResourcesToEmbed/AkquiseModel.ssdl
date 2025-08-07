@@ -235,6 +235,8 @@
     <Property Name="Erinnerung_an" Type="varchar" MaxLength="100" />
     <Property Name="Synopsis" Type="text" />
     <Property Name="FormatNr" Type="int" Nullable="false" />
+    <Property Name="BearbeiterNr2" Type="int" Nullable="false" />
+    <Property Name="AnbieterNr2" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_ProjektFirmaRel">
     <Key>
@@ -432,6 +434,8 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       <PropertyRef Name="Prioliste" />
       <PropertyRef Name="Sichtung" />
       <PropertyRef Name="Produktionsliste" />
+      <PropertyRef Name="BearbeiterNr2" />
+      <PropertyRef Name="AnbieterNr2" />
     </Key>
     <Property Name="ENTRY No" Type="int" Nullable="false" />
     <Property Name="Titel" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -459,6 +463,9 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
     <Property Name="aufgenommen_am" Type="datetime" Nullable="false" />
     <Property Name="Sichtung" Type="bit" Nullable="false" />
     <Property Name="Produktionsliste" Type="bit" Nullable="false" />
+    <Property Name="BearbeiterNr2" Type="int" Nullable="false" />
+    <Property Name="AnbieterNr2" Type="int" Nullable="false" />
+    <Property Name="Anbieter2" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <Association Name="FK__tbl_BlobD__Entry__2EA5EC27">
     <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="1">
@@ -756,6 +763,18 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Anbieter_Projekte2">
+    <End Role="tbl_Anbieter" Type="Self.tbl_Anbieter" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Anbieter">
+        <PropertyRef Name="AnbieterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AnbieterNr2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Bearbeiter_ProjektBearbeiterRel">
     <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
     <End Role="tbl_ProjektBearbeiterRel" Type="Self.tbl_ProjektBearbeiterRel" Multiplicity="*" />
@@ -777,6 +796,18 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       </Principal>
       <Dependent Role="tbl_Projekte">
         <PropertyRef Name="BearbeiterNr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bearbeiter_Projekte2">
+    <End Role="tbl_Bearbeiter" Type="Self.tbl_Bearbeiter" Multiplicity="1" />
+    <End Role="tbl_Projekte" Type="Self.tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bearbeiter">
+        <PropertyRef Name="BearbeiterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BearbeiterNr2" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1041,7 +1072,10 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
     [qry_ProjekteIndex].[RegieMatchname] AS [RegieMatchname], 
     [qry_ProjekteIndex].[aufgenommen_am] AS [aufgenommen_am], 
     [qry_ProjekteIndex].[Sichtung] AS [Sichtung], 
-    [qry_ProjekteIndex].[Produktionsliste] AS [Produktionsliste]
+    [qry_ProjekteIndex].[Produktionsliste] AS [Produktionsliste], 
+    [qry_ProjekteIndex].[BearbeiterNr2] AS [BearbeiterNr2], 
+    [qry_ProjekteIndex].[AnbieterNr2] AS [AnbieterNr2], 
+    [qry_ProjekteIndex].[Anbieter2] AS [Anbieter2]
     FROM [dbo].[qry_ProjekteIndex] AS [qry_ProjekteIndex]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__tbl_BlobD__Entry__2EA5EC27" Association="Self.FK__tbl_BlobD__Entry__2EA5EC27">
@@ -1136,11 +1170,19 @@ warning 6002: The table/view 'Akquisition.dbo.qry_ProjekteIndex' does not have a
       <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
       <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
     </AssociationSet>
+    <AssociationSet Name="FK_Anbieter_Projekte2" Association="Self.FK_Anbieter_Projekte2">
+      <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
     <AssociationSet Name="FK_Bearbeiter_ProjektBearbeiterRel" Association="Self.FK_Bearbeiter_ProjektBearbeiterRel">
       <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
       <End Role="tbl_ProjektBearbeiterRel" EntitySet="tbl_ProjektBearbeiterRel" />
     </AssociationSet>
     <AssociationSet Name="FK_Bearbeiter_Projekte" Association="Self.FK_Bearbeiter_Projekte">
+      <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bearbeiter_Projekte2" Association="Self.FK_Bearbeiter_Projekte2">
       <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
       <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
     </AssociationSet>

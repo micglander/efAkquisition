@@ -225,6 +225,14 @@
       <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
       <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
     </AssociationSet>
+    <AssociationSet Name="FK_Anbieter_Projekte2" Association="AkquiseTestModel.FK_Anbieter_Projekte2">
+      <End Role="tbl_Anbieter" EntitySet="tbl_Anbieter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bearbeiter_Projekte2" Association="AkquiseTestModel.FK_Bearbeiter_Projekte2">
+      <End Role="tbl_Bearbeiter" EntitySet="tbl_Bearbeiter" />
+      <End Role="tbl_Projekte" EntitySet="tbl_Projekte" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tbl_Anbieter">
     <Key>
@@ -237,6 +245,7 @@
     <Property Name="AnbieterAF" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="tbl_Bearbeiter" Relationship="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter" FromRole="tbl_Anbieter" ToRole="tbl_Bearbeiter" />
     <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK_tbl_Anbieter_tbl_Projekte_AnbieterNr" FromRole="tbl_Anbieter" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Projekte1" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Anbieter" ToRole="tbl_Projekte" />
   </EntityType>
   <EntityType Name="tbl_Laender">
     <Key>
@@ -254,6 +263,7 @@
     <NavigationProperty Name="tbl_Anbieter" Relationship="AkquiseTestModel.FK_tbl_Bearbeiter_tbl_Anbieter" FromRole="tbl_Bearbeiter" ToRole="tbl_Anbieter" />
     <NavigationProperty Name="tbl_Projekte" Relationship="AkquiseTestModel.FK__tbl_Proje__Bearb__7F2BE32F" FromRole="tbl_Bearbeiter" ToRole="tbl_Projekte" />
     <NavigationProperty Name="tbl_Projekte1" Relationship="AkquiseTestModel.tbl_ProjektBearbeiterRel" FromRole="tbl_Bearbeiter" ToRole="tbl_Projekte" />
+    <NavigationProperty Name="tbl_Projekte11" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Bearbeiter" ToRole="tbl_Projekte" />
   </EntityType>
   <Association Name="FK_tbl_Bearbeiter_tbl_Anbieter">
     <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="1" />
@@ -654,7 +664,10 @@
     <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="FormatNr" Type="Int32" Nullable="false" DefaultValue="1" />
     <NavigationProperty Name="tbl_Filmformate" Relationship="AkquiseTestModel.FK_Filmformate_Projekte" FromRole="tbl_Projekte" ToRole="tbl_Filmformate" />
-    <NavigationProperty Name="tbl_Bearbeiter1" Relationship="AkquiseTestModel.tbl_ProjektBearbeiterRel" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
+    <Property Name="BearbeiterNr2" Type="Int32" Nullable="false" />
+    <Property Name="AnbieterNr2" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Anbieter2" Relationship="AkquiseTestModel.FK_Anbieter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Anbieter" />
+    <NavigationProperty Name="tbl_Bearbeiter2" Relationship="AkquiseTestModel.FK_Bearbeiter_Projekte2" FromRole="tbl_Projekte" ToRole="tbl_Bearbeiter" />
   </EntityType>
   <Association Name="FK_tbl_Anbieter_tbl_Projekte_AnbieterNr">
     <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="1" />
@@ -1036,6 +1049,8 @@
       <PropertyRef Name="Prioliste" />
       <PropertyRef Name="Sichtung" />
       <PropertyRef Name="Produktionsliste" />
+      <PropertyRef Name="BearbeiterNr2" />
+      <PropertyRef Name="AnbieterNr2" />
     </Key>
     <Property Name="ENTRY_No" Type="Int32" Nullable="false" />
     <Property Name="Titel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -1063,6 +1078,9 @@
     <Property Name="aufgenommen_am" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="Sichtung" Type="Boolean" Nullable="false" />
     <Property Name="Produktionsliste" Type="Boolean" Nullable="false" />
+    <Property Name="BearbeiterNr2" Type="Int32" Nullable="false" />
+    <Property Name="AnbieterNr2" Type="Int32" Nullable="false" />
+    <Property Name="Anbieter2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tbl_BlobData">
     <Key>
@@ -1195,5 +1213,29 @@
   <Association Name="tbl_ProjektBearbeiterRel">
     <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="*" />
     <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Anbieter_Projekte2">
+    <End Type="AkquiseTestModel.tbl_Anbieter" Role="tbl_Anbieter" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Anbieter">
+        <PropertyRef Name="AnbieterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="AnbieterNr2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bearbeiter_Projekte2">
+    <End Type="AkquiseTestModel.tbl_Bearbeiter" Role="tbl_Bearbeiter" Multiplicity="1" />
+    <End Type="AkquiseTestModel.tbl_Projekte" Role="tbl_Projekte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bearbeiter">
+        <PropertyRef Name="BearbeiterNr" />
+      </Principal>
+      <Dependent Role="tbl_Projekte">
+        <PropertyRef Name="BearbeiterNr2" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

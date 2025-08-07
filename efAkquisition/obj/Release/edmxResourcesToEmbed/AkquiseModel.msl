@@ -260,6 +260,8 @@
     <EntitySetMapping Name="tbl_Projekte">
       <EntityTypeMapping TypeName="AkquiseTestModel.tbl_Projekte">
         <MappingFragment StoreEntitySet="tbl_Projekte">
+          <ScalarProperty Name="AnbieterNr2" ColumnName="AnbieterNr2" />
+          <ScalarProperty Name="BearbeiterNr2" ColumnName="BearbeiterNr2" />
           <ScalarProperty Name="FormatNr" ColumnName="FormatNr" />
           <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
           <ScalarProperty Name="Erinnerung_an" ColumnName="Erinnerung_an" />
@@ -382,6 +384,9 @@
     <EntitySetMapping Name="qry_ProjekteIndex">
       <EntityTypeMapping TypeName="AkquiseTestModel.qry_ProjekteIndex">
         <MappingFragment StoreEntitySet="qry_ProjekteIndex">
+          <ScalarProperty Name="Anbieter2" ColumnName="Anbieter2" />
+          <ScalarProperty Name="AnbieterNr2" ColumnName="AnbieterNr2" />
+          <ScalarProperty Name="BearbeiterNr2" ColumnName="BearbeiterNr2" />
           <ScalarProperty Name="Produktionsliste" ColumnName="Produktionsliste" />
           <ScalarProperty Name="Sichtung" ColumnName="Sichtung" />
           <ScalarProperty Name="aufgenommen_am" ColumnName="aufgenommen_am" />
